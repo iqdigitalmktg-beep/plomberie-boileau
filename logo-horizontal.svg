@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 140" role="img" aria-labelledby="t2">
+  <title id="t2">Plomberie Boileau horizontal wordmark</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&amp;display=swap');
+    .wm { font-family:'Bricolage Grotesque','Avenir Next','Helvetica Neue',Arial,sans-serif; }
+  </style>
+  <g>
+    <path d="M70 18 C70 18 38 55 38 79 a32 32 0 0 0 64 0 C102 55 70 18 70 18 Z"
+          fill="none" stroke="#157A55" stroke-width="4.5" stroke-linejoin="round"/>
+    <path d="M70 53 c8 9 13 15 13 24 a13 13 0 0 1 -26 0 c0 -6 3 -9 6 -12 c-1 4 1 7 3 8 c-1.5 -7 1 -14 4 -20 Z"
+          fill="#D99A3D"/>
+  </g>
+  <text x="128" y="72" class="wm" font-weight="700" font-size="46" fill="#0C4A36">Plomberie Boileau</text>
+  <text x="130" y="104" class="wm" font-weight="500" font-size="17" letter-spacing="4.5" fill="#157A55">EAU · CHALEUR · MONTRÉAL</text>
+</svg>

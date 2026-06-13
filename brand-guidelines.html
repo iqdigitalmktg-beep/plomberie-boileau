@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plomberie Boileau — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Work+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --spruce:#157A55; --deep:#0C4A36; --brass:#D99A3D; --brass-dark:#42300E;
+  --ice:#F2F6F3; --mint:#DCEFE5; --ink:#1C2B24; --paper:#FFFFFF; --muted:#5A6B62;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Work Sans',sans-serif;color:var(--ink);background:var(--ice);line-height:1.65;font-size:16px}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.15}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+section{padding:72px 0}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--spruce);font-weight:600;margin-bottom:14px}
+.piperule{display:flex;align-items:center;gap:0;margin:0 0 28px}
+.piperule::before,.piperule::after{content:"";height:3px;background:var(--brass);flex:1;border-radius:2px}
+.piperule span{width:14px;height:14px;border:3px solid var(--brass);border-radius:50%;background:var(--ice);margin:0 6px;flex:none}
+.cover{background:var(--deep);color:var(--ice);padding:90px 0 80px;text-align:center}
+.cover img{width:200px;height:200px;margin-bottom:34px}
+.cover h1{font-size:clamp(38px,6vw,58px);font-weight:700}
+.cover .tag{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,3vw,26px);color:var(--brass);margin-top:14px}
+.cover .meta{margin-top:30px;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#9DC4B3}
+.band{display:flex;height:14px}
+.band div{flex:1}
+h2{font-size:clamp(26px,4vw,36px);font-weight:700;color:var(--deep);margin-bottom:18px}
+h3{font-size:19px;font-weight:600;color:var(--deep);margin:30px 0 10px}
+p{margin-bottom:14px;max-width:70ch}
+.lead{font-size:18.5px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--paper);border-radius:14px;padding:26px;border:1px solid #E2EAE5}
+.card h3{margin-top:0}
+.swatch{border-radius:14px;overflow:hidden;border:1px solid #E2EAE5}
+.swatch .chip{height:110px}
+.swatch .info{background:var(--paper);padding:14px 16px;font-size:13.5px}
+.swatch .info b{display:block;font-size:15px;color:var(--deep)}
+.swatch .info code{color:var(--muted);font-family:monospace}
+.donts li,.dos li{margin-bottom:8px}
+ul{padding-left:22px;margin-bottom:14px}
+.voice-ex{border-left:4px solid var(--brass);background:var(--paper);padding:16px 20px;border-radius:0 12px 12px 0;margin:12px 0}
+.voice-ex .no{color:#A33B2E;text-decoration:line-through;display:block;margin-bottom:6px}
+.voice-ex .yes{color:var(--deep);font-weight:500}
+table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:12px;overflow:hidden;font-size:14.5px}
+th{background:var(--spruce);color:var(--ice);text-align:left;padding:12px 14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600}
+td{padding:12px 14px;border-top:1px solid #E2EAE5;vertical-align:top}
+.badge{display:inline-block;background:var(--spruce);color:var(--ice);padding:6px 14px;border-radius:7px;font-size:13px;font-weight:500;margin:0 6px 8px 0}
+.badge.brass{background:var(--brass);color:var(--brass-dark)}
+.badge.outline{background:transparent;border:1.5px solid var(--spruce);color:var(--spruce)}
+.typespec{background:var(--paper);border-radius:14px;padding:30px;border:1px solid #E2EAE5;margin-bottom:16px}
+footer{background:var(--deep);color:#9DC4B3;text-align:center;padding:34px;font-size:13px}
+.logo-stage{background:var(--paper);border:1px solid #E2EAE5;border-radius:14px;padding:34px;display:flex;align-items:center;justify-content:center;min-height:220px}
+.logo-stage.dark{background:var(--deep)}
+.caption{font-size:13px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <img src="logo-crest.svg" alt="Plomberie Boileau crest">
+  <h1>Plomberie Boileau Inc.</h1>
+  <p class="tag">Your water. Your warmth. Your neighbour.</p>
+  <p class="meta">Brand guidelines · English edition · v1.0 · 2026</p>
+</div>
+<div class="band"><div style="background:#157A55"></div><div style="background:#0C4A36"></div><div style="background:#D99A3D"></div><div style="background:#DCEFE5"></div></div>
+
+<section><div class="wrap">
+  <p class="eyebrow">01 — The brand story</p>
+  <h2>Water and warmth, one neighbour</h2>
+  <div class="piperule"><span></span></div>
+  <p class="lead">Most Montreal plumbers fix your pipes. Most HVAC techs heat your home. Boileau is certified to do both — one licensed neighbour for everything that flows or warms a Montreal home, from a triplex in Rosemont to a small commercial space on a corner in Villeray.</p>
+  <p>The name carries it. <strong>Boileau</strong> reads as <em>"bouille l'eau"</em> — boil the water. Water and heat have always lived together in this name. The brand mark makes that literal: a flame inside a water drop. We never have to explain who we are; the name and mark do it in one glance.</p>
+  <p>The brand's promise is built for how Montrealers actually hire trades: they verify the RBQ licence, they ask who's insured, they ask their neighbours. Boileau leans into that. We are the plumber people wait for — calm, certified, recommended over fences and in alley conversations.</p>
+  <h3>Positioning statement</h3>
+  <p><em>For Montreal homeowners, condo owners and small commercial clients who want one trusted, certified expert instead of a rotation of strangers, Plomberie Boileau is the neighbourhood master of water and warmth — RBQ-licensed in both plumbing and heating — whose work is worth the wait.</em></p>
+  <h3>Brand personality</h3>
+  <div class="grid g3">
+    <div class="card"><h3>Warm</h3><p>Talks like a good neighbour, not a call centre. Knows the alley, the borough, the building type.</p></div>
+    <div class="card"><h3>Certified-calm</h3><p>Never fearmongers. Explains, prevents, reassures. The licence does the flexing.</p></div>
+    <div class="card"><h3>Honest about time</h3><p>Booked weeks out and says so plainly. Scarcity is proof, never a sales trick.</p></div>
+  </div>
+</div></section>
+<section style="background:var(--paper)"><div class="wrap">
+  <p class="eyebrow">02 — Who we speak to</p>
+  <h2>Three Montreal audiences</h2>
+  <div class="piperule"><span></span></div>
+  <div class="grid g3">
+    <div class="card">
+      <h3>The plex owner</h3>
+      <p style="font-size:14.5px">Owns a duplex/triplex in Rosemont, Villeray, the Plateau, NDG. Century-old building, cast-iron stacks, hidden shut-off valves, no AC upstairs in July.</p>
+      <p style="font-size:14.5px"><strong>Deep fear:</strong> sewer backup in the basement during a summer storm. <strong>Quiet dream:</strong> a heat pump and a rebate cheque.</p>
+    </div>
+    <div class="card">
+      <h3>The condo owner</h3>
+      <p style="font-size:14.5px">Insurance demands a water heater under 10–12 years old. Terrified of a leak reaching the unit below. Wants paperwork, conformity, proof.</p>
+      <p style="font-size:14.5px"><strong>Buys on:</strong> documentation and tidiness. <strong>Hates:</strong> vague quotes.</p>
+    </div>
+    <div class="card">
+      <h3>The small commercial / property manager</h3>
+      <p style="font-size:14.5px">Runs a café, dépanneur, or a handful of rental units. Needs one reliable number, fast invoices, and a trade who shows up when promised.</p>
+      <p style="font-size:14.5px"><strong>Buys on:</strong> reliability and relationship, not price.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">03 — The logo system</p>
+  <h2>The crest and the mark</h2>
+  <div class="piperule"><span></span></div>
+  <p>The primary logo is a heritage seal — the visual language of licensed Quebec trades and official conformity stamps. Inside it sits the brand mark: <strong>a flame within a water drop</strong>. Boil + eau.</p>
+  <div class="grid g2">
+    <div>
+      <div class="logo-stage"><img src="logo-crest.svg" alt="Primary crest" style="width:190px"></div>
+      <p class="caption">Primary crest — use on truck doors, invoices, uniforms, site footer, social avatars.</p>
+    </div>
+    <div>
+      <div class="logo-stage"><img src="logo-horizontal.svg" alt="Horizontal lockup" style="width:100%;max-width:420px"></div>
+      <p class="caption">Horizontal lockup — website header, email signature, documents.</p>
+    </div>
+  </div>
+  <h3>Rules</h3>
+  <ul class="dos">
+    <li><strong>Clear space:</strong> keep empty space around the crest equal to the height of the letter "P" in the wordmark.</li>
+    <li><strong>Minimum sizes:</strong> crest 28 px / 18 mm; horizontal lockup 140 px / 45 mm wide.</li>
+    <li><strong>On dark spruce:</strong> use the crest as-is (it carries its own background). The horizontal lockup switches its wordmark to ice (#F2F6F3).</li>
+    <li><strong>One-colour version:</strong> all elements in deep spruce, or all in ice on dark — for stamps, embroidery, engraving.</li>
+  </ul>
+  <h3>Never</h3>
+  <ul class="donts">
+    <li>Never stretch, rotate, recolour, or add shadows/glows to the crest.</li>
+    <li>Never place the crest on busy photography without a solid circle behind it.</li>
+    <li>Never separate the flame from the drop — the combined glyph is the brand.</li>
+  </ul>
+</div></section>
+
+<section style="background:var(--paper)"><div class="wrap">
+  <p class="eyebrow">04 — Colour</p>
+  <h2>Fresh trade green</h2>
+  <div class="piperule"><span></span></div>
+  <p>Green is the working colour of Quebec's energy transition — LogisVert, Chauffez Vert, Roulez vert. Boileau's spruce green ties the trade to that movement while standing apart from the sea of blue-and-red plumber brands. Brass is the metal of valves and fittings: the warm, human accent.</p>
+  <div class="grid g3" style="margin-top:24px">
+    <div class="swatch"><div class="chip" style="background:#157A55"></div><div class="info"><b>Spruce</b><code>#157A55 · RGB 21 122 85</code><br>Primary. Buttons, headers, the crest field.</div></div>
+    <div class="swatch"><div class="chip" style="background:#0C4A36"></div><div class="info"><b>Deep spruce</b><code>#0C4A36 · RGB 12 74 54</code><br>Headlines, footers, dark surfaces.</div></div>
+    <div class="swatch"><div class="chip" style="background:#D99A3D"></div><div class="info"><b>Brass</b><code>#D99A3D · RGB 217 154 61</code><br>Accent only: the flame, highlights, badges. Max 10% of any layout.</div></div>
+    <div class="swatch"><div class="chip" style="background:#F2F6F3;border-bottom:1px solid #E2EAE5"></div><div class="info"><b>Ice</b><code>#F2F6F3 · RGB 242 246 243</code><br>Page background, text on dark.</div></div>
+    <div class="swatch"><div class="chip" style="background:#DCEFE5"></div><div class="info"><b>Mint</b><code>#DCEFE5 · RGB 220 239 229</code><br>Tinted panels, hover states, tags.</div></div>
+    <div class="swatch"><div class="chip" style="background:#1C2B24"></div><div class="info"><b>Ink</b><code>#1C2B24 · RGB 28 43 36</code><br>Body text.</div></div>
+  </div>
+  <h3>Accessibility</h3>
+  <ul>
+    <li>Ice text on spruce: contrast 4.9:1 — passes AA for all text. Ice on deep spruce: 9.8:1.</li>
+    <li>Brass is decorative: never use brass for body text on light backgrounds. Brass-dark (#42300E) text sits on brass fills.</li>
+    <li>Proportion guide: 60% ice/white, 25% spruce family, 10% mint, 5% brass.</li>
+  </ul>
+</div></section>
+<section><div class="wrap">
+  <p class="eyebrow">05 — Typography</p>
+  <h2>Confident, friendly type</h2>
+  <div class="piperule"><span></span></div>
+  <div class="typespec">
+    <p style="font-family:'Bricolage Grotesque';font-size:34px;font-weight:700;color:var(--deep);margin-bottom:6px">Bricolage Grotesque</p>
+    <p class="caption">Display — headlines, buttons, the wordmark. Weights 600–700. Its slightly hand-built warmth matches "bricolage" culture: Quebec's love of fixing things right. Free via Google Fonts.</p>
+  </div>
+  <div class="typespec">
+    <p style="font-size:21px;margin-bottom:6px">Work Sans — body text for everything readers actually read: paragraphs, forms, invoices, blog articles. Weights 400–500.</p>
+    <p class="caption">Body — clear at small sizes, excellent French diacritics. Free via Google Fonts.</p>
+  </div>
+  <div class="typespec">
+    <p style="font-family:'Fraunces';font-style:italic;font-size:24px;color:var(--spruce);margin-bottom:6px">Fraunces italic — for the tagline and pull-quotes only.</p>
+    <p class="caption">Editorial accent. One or two appearances per page, maximum.</p>
+  </div>
+  <h3>Scale</h3>
+  <table>
+    <tr><th>Role</th><th>Face / weight</th><th>Size / line</th></tr>
+    <tr><td>H1 hero</td><td>Bricolage 700</td><td>44–58 px / 1.1</td></tr>
+    <tr><td>H2 section</td><td>Bricolage 700</td><td>30–36 px / 1.15</td></tr>
+    <tr><td>H3 card</td><td>Bricolage 600</td><td>19–21 px / 1.25</td></tr>
+    <tr><td>Body</td><td>Work Sans 400</td><td>16–17 px / 1.65</td></tr>
+    <tr><td>Caption / legal</td><td>Work Sans 400</td><td>13 px / 1.5</td></tr>
+    <tr><td>Eyebrow label</td><td>Work Sans 600, +3px tracking, uppercase</td><td>12 px</td></tr>
+  </table>
+</div></section>
+
+<section style="background:var(--paper)"><div class="wrap">
+  <p class="eyebrow">06 — Voice &amp; tone</p>
+  <h2>How Boileau talks</h2>
+  <div class="piperule"><span></span></div>
+  <p class="lead">Like a neighbour who happens to hold the licence. Plain words, borough names, zero panic, zero jargon-flexing. We explain the why, we respect people's intelligence, and we are honest about the wait.</p>
+  <h3>Principles with examples</h3>
+  <div class="voice-ex"><span class="no">"We offer comprehensive hydronic heating solutions leveraging industry-leading technology."</span><span class="yes">"We install and repair hot-water heating — boilers, radiators, heated floors. The systems older Montreal homes were built around."</span></div>
+  <div class="voice-ex"><span class="no">"ACT NOW! Sewer backups can DESTROY your home!!"</span><span class="yes">"Montreal storms can push the sewer back up your basement drain. A backwater valve stops it. Ten minutes to check yours — here's how."</span></div>
+  <div class="voice-ex"><span class="no">"Due to unprecedented demand, availability is limited."</span><span class="yes">"Honestly: we're booked for the next few weeks. Join the list and we'll call you in order — no queue-jumping, no surprises."</span></div>
+  <h3>Vocabulary</h3>
+  <ul>
+    <li>Say <strong>"your building," "your plex," "your block"</strong> — never "the property."</li>
+    <li>Name boroughs and realities: alleys, spiral staircases, cast-iron stacks, January cold snaps.</li>
+    <li>Numbers over adjectives: "licensed since [year]," "up to $7,840 in LogisVert rebates" — not "amazing service."</li>
+    <li>French words live naturally in the English voice: plex, dépanneur, RBQ, CMMTQ.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">07 — Messaging matrix</p>
+  <h2>The right message, by audience and season</h2>
+  <div class="piperule"><span></span></div>
+  <table>
+    <tr><th>Audience</th><th>Lead message</th><th>Proof point</th><th>Peak seasons</th></tr>
+    <tr><td>Plex owner</td><td>One certified neighbour for water and warmth — and the backup-valve check your basement is begging for.</td><td>RBQ plumbing + heating licences; City of Montréal makes valves the owner's responsibility.</td><td>Spring melt, summer storms, January freeze</td></tr>
+    <tr><td>Condo owner</td><td>Water heater conformity without the headache — installed, documented, insurer-ready.</td><td>Dated invoice + photos for your insurer and syndicate.</td><td>Year-round; insurance renewals</td></tr>
+    <tr><td>Heat-pump shopper</td><td>The certification that unlocks the rebate: LogisVert pays up to $7,840 — only for work by an RBQ-licensed contractor.</td><td>Dual plumbing/HVAC certification; rebate paperwork guidance.</td><td>Spring and fall installs</td></tr>
+    <tr><td>Small commercial</td><td>One number that answers. Maintenance plans that keep the café open.</td><td>Track record with repeat clients; clean fast invoicing.</td><td>Pre-winter prep</td></tr>
+  </table>
+</div></section>
+
+<section style="background:var(--paper)"><div class="wrap">
+  <p class="eyebrow">08 — Trust signals</p>
+  <h2>The licence does the talking</h2>
+  <div class="piperule"><span></span></div>
+  <p>In Quebec, trust is verifiable. These signals appear consistently — same order, same wording — on the website footer, invoices, estimates, truck, and business card:</p>
+  <p style="margin:18px 0">
+    <span class="badge">RBQ licence № [XXXX-XXXX-XX]</span>
+    <span class="badge">CMMTQ member</span>
+    <span class="badge brass">Fully insured</span>
+    <span class="badge outline">Plumbing + heating certified</span>
+  </p>
+  <ul>
+    <li>The RBQ number is always shown in full and always findable within one scroll — consumers are taught to verify it in the registry, so make verification effortless.</li>
+    <li>Invite verification: "Look us up in the RBQ registry — we'll wait." Confidence is the brand.</li>
+    <li>Every estimate is written; every invoice lists licence number and insurance. Paper is part of the product.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">09 — Applications</p>
+  <h2>Where the brand lives</h2>
+  <div class="piperule"><span></span></div>
+  <div class="grid g2">
+    <div class="card"><h3>Truck</h3><p style="font-size:14.5px">Spruce body or white body with spruce panel. Crest on both doors. Horizontal lockup + RBQ number on rear and sides in ice. Brass pinstripe along the body line.</p></div>
+    <div class="card"><h3>Business card</h3><p style="font-size:14.5px">Ice front: horizontal lockup, name, trade titles. Deep spruce back: crest centred, RBQ/CMMTQ line in brass at the foot.</p></div>
+    <div class="card"><h3>Workwear</h3><p style="font-size:14.5px">Deep spruce tee/softshell, one-colour ice crest embroidered on chest. Brass stitching detail optional. Clean boots-on look — customers photograph what shows up.</p></div>
+    <div class="card"><h3>Invoice / estimate</h3><p style="font-size:14.5px">Horizontal lockup top-left; licence badges in footer; mint panel for totals. Always a plain-language line describing what was done and why.</p></div>
+  </div>
+</div></section>
+
+<section style="background:var(--deep)"><div class="wrap" style="color:var(--ice)">
+  <p class="eyebrow" style="color:var(--brass)">10 — Bilingual rules</p>
+  <h2 style="color:var(--ice)">French first, by law and by heart</h2>
+  <div class="piperule"><span></span></div>
+  <p style="color:#C7DCD1">Quebec's Charter of the French Language (Law 96) requires French to be at least as prominent as any other language in public-facing communications. The Boileau brand treats this as identity, not compliance:</p>
+  <ul style="color:#C7DCD1">
+    <li>The website defaults to French; English is one click away (EN toggle, top right).</li>
+    <li>Tagline pair is fixed: <em style="color:var(--brass)">«Votre eau. Votre chaleur. Votre voisin.»</em> / "Your water. Your warmth. Your neighbour."</li>
+    <li>French copy is written in Quebec French — never translated France-French. It says "plex," "thermopompe," "fournaise," "déneigement season," the way the client's neighbours do.</li>
+    <li>Truck, card, and invoice lead with French; English follows where space allows.</li>
+  </ul>
+</div></section>
+
+<footer>Plomberie Boileau Inc. — Brand guidelines v1.0 · Montréal, Québec · Prepared 2026</footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- FR homepage (default / Law 96) -->
+  <url>
+    <loc>https://plomberieboileau.ca/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/"/>
+  </url>
+
+  <!-- EN homepage -->
+  <url>
+    <loc>https://plomberieboileau.ca/en/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/"/>
+  </url>
+
+  <!-- FR blog hub -->
+  <url>
+    <loc>https://plomberieboileau.ca/blogue/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/"/>
+  </url>
+
+  <!-- EN blog hub -->
+  <url>
+    <loc>https://plomberieboileau.ca/en/blog/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/"/>
+  </url>
+
+  <!-- FR article: clapet antiretour / refoulement d'égout -->
+  <url>
+    <loc>https://plomberieboileau.ca/blogue/clapet-antiretour-refoulement-egout-montreal.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/clapet-antiretour-refoulement-egout-montreal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/backwater-valve-sewer-backup-montreal.html"/>
+  </url>
+
+  <!-- EN article: backwater valve / sewer backup -->
+  <url>
+    <loc>https://plomberieboileau.ca/en/blog/backwater-valve-sewer-backup-montreal.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/clapet-antiretour-refoulement-egout-montreal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/backwater-valve-sewer-backup-montreal.html"/>
+  </url>
+
+  <!-- FR article: tuyaux gelés -->
+  <url>
+    <loc>https://plomberieboileau.ca/blogue/tuyaux-geles-hiver-montreal.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/tuyaux-geles-hiver-montreal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/frozen-pipes-montreal-winter.html"/>
+  </url>
+
+  <!-- EN article: frozen pipes -->
+  <url>
+    <loc>https://plomberieboileau.ca/en/blog/frozen-pipes-montreal-winter.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/tuyaux-geles-hiver-montreal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/frozen-pipes-montreal-winter.html"/>
+  </url>
+
+  <!-- FR article: subvention thermopompe LogisVert -->
+  <url>
+    <loc>https://plomberieboileau.ca/blogue/rabais-thermopompe-logisvert-quebec.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/rabais-thermopompe-logisvert-quebec.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/logisvert-heat-pump-rebate-montreal.html"/>
+  </url>
+
+  <!-- EN article: LogisVert heat pump rebate -->
+  <url>
+    <loc>https://plomberieboileau.ca/en/blog/logisvert-heat-pump-rebate-montreal.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://plomberieboileau.ca/blogue/rabais-thermopompe-logisvert-quebec.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://plomberieboileau.ca/en/blog/logisvert-heat-pump-rebate-montreal.html"/>
+  </url>
+
+</urlset>
