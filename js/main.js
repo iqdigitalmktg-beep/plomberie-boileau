@@ -121,16 +121,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initModal();
 
-  // ---- Scroll reveal ----
+  // ---- Scroll reveal with staggered grid cards ----
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Pre-assign stagger delays to grid children so sibling cards
+    // fan in when the whole grid scrolls into view together.
+    document.querySelectorAll('.services-grid > .service-card, .blog-grid > .blog-card').forEach(el => {
+      const siblings = Array.from(el.parentElement.children);
+      el.dataset.staggerDelay = siblings.indexOf(el) * 0.11;
+    });
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
+          const delay = parseFloat(e.target.dataset.staggerDelay || 0);
+          e.target.style.transitionDelay = `${delay}s`;
           e.target.classList.add('visible');
+          // Clear the delay after the reveal so hover transitions feel instant
+          const clearAfter = Math.round((550 + delay * 1000) + 60);
+          setTimeout(() => { e.target.style.transitionDelay = ''; }, clearAfter);
           observer.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
