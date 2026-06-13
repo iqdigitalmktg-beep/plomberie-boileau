@@ -193,4 +193,20 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     window.location.href = '/';
   });
+
+  // ---- Hero drop→flame: precise stroke-dasharray via getTotalLength ----
+  const hdmOutline = document.querySelector('.hdm-outline');
+  if (hdmOutline) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      hdmOutline.style.strokeDashoffset = '0';
+      hdmOutline.style.strokeDasharray = 'none';
+      const hdmFlame = document.querySelector('.hdm-flame');
+      if (hdmFlame) { hdmFlame.style.opacity = '1'; hdmFlame.style.transform = 'scale(1)'; }
+    } else {
+      const len = Math.ceil(hdmOutline.getTotalLength());
+      hdmOutline.style.strokeDasharray = len;
+      hdmOutline.style.strokeDashoffset = len;
+    }
+  }
 });

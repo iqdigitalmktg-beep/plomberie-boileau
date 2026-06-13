@@ -837,6 +837,171 @@ footer {
 }
 
 /* ============================================================
+   DOT-GRID TEXTURE — ice at 6% on dark sections
+   (dark-surface inversion: --spruce is near-invisible on
+   --deep-spruce background; use --ice instead)
+   ============================================================ */
+#hero,
+#waitlist {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='4' cy='4' r='2' fill='%23F2F6F3' fill-opacity='0.06'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   HERO TWO-COLUMN LAYOUT
+   ============================================================ */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-content {
+  min-width: 0;
+}
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-visual {
+    order: -1;
+  }
+}
+
+.hero-drop-flame {
+  width: 160px;
+  height: 200px;
+  filter: drop-shadow(0 16px 48px rgba(0, 0, 0, 0.28));
+}
+
+/* ============================================================
+   DROP→FLAME ANIMATION
+   Spec: draw drop 0.7s (@0.3s delay) → flame appears 0.45s
+   (@1.05s) — total ~1.5s. Stroke-only drop: no fill, just
+   ice outline. clipPath keeps flame inside the drop shape.
+   ============================================================ */
+.hdm-outline {
+  stroke-dasharray: 640;
+  stroke-dashoffset: 640;
+  animation: boileau-drawDrop 0.7s ease-out 0.3s both;
+}
+
+.hdm-flame {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transform: scale(0.6);
+  animation: boileau-revealFlame 0.45s ease-out 1.05s both;
+}
+
+@keyframes boileau-drawDrop {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes boileau-revealFlame {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   PIPE-RULE DIVIDER
+   Canonical brand component: 3px brass bar, brass end-caps.
+   scaleX reveal triggered by .visible class (scroll observer).
+   ============================================================ */
+.pipe-rule {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pipe-rule::before,
+.pipe-rule::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brass);
+  flex-shrink: 0;
+}
+
+.pipe-rule-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--brass);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Override .reveal defaults: pipe-rule uses scaleX, not fadeUp */
+.pipe-rule.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.pipe-rule.reveal.visible .pipe-rule-bar {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   SERVICE CARD ILLUSTRATION
+   ============================================================ */
+.svc-illo {
+  margin-bottom: 1rem;
+  line-height: 0;
+}
+
+.svc-illo svg {
+  width: 96px;
+  height: 68px;
+}
+
+/* ============================================================
+   BLOG CARD ILLUSTRATION
+   ============================================================ */
+.blog-card-illo {
+  line-height: 0;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+  background: var(--mint);
+  margin-bottom: 1rem;
+}
+
+.blog-card-illo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   ARTICLE HERO BAND
+   Full-width illustration strip below article nav.
+   aria-hidden="true" — purely decorative.
+   ============================================================ */
+.article-hero-band {
+  background: var(--deep-spruce);
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.article-hero-band svg {
+  width: 100%;
+  max-height: 140px;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -881,5 +1046,23 @@ footer {
   .service-card:hover,
   .blog-card:hover {
     transform: none;
+  }
+
+  /* Hero drop→flame — show completed mark immediately */
+  .hdm-outline {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .hdm-flame {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Pipe-rule — expand immediately, no transition */
+  .pipe-rule .pipe-rule-bar {
+    transform: scaleX(1);
+    transition: none;
   }
 }

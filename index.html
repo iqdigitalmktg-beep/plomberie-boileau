@@ -92,13 +92,38 @@
      ============================================================ -->
 <section id="hero" aria-labelledby="hero-headline">
   <div class="container">
-    <p class="hero-tagline">«Votre eau. Votre chaleur. Votre voisin.»</p>
-    <h1 class="hero-headline" id="hero-headline">Votre plombier et spécialiste en chauffage à Montréal. Pour de vrai.</h1>
-    <p class="hero-sub">Titulaire d'un permis RBQ et membre certifié de la CMMTQ en plomberie et en chauffage. On dessert Rosemont, Villeray, le Plateau, NDG et les quartiers avoisinants.</p>
-    <div id="personalized-greeting" aria-live="polite" style="opacity:0;"></div>
-    <div class="hero-cta-group">
-      <a href="#waitlist" class="btn-primary">Rejoindre la liste d'attente</a>
-      <a href="#services" class="btn-outline">Nos services</a>
+    <div class="hero-layout">
+      <div class="hero-content">
+        <p class="hero-tagline">«Votre eau. Votre chaleur. Votre voisin.»</p>
+        <h1 class="hero-headline" id="hero-headline">Votre plombier et spécialiste en chauffage à Montréal. Pour de vrai.</h1>
+        <p class="hero-sub">Titulaire d'un permis RBQ et membre certifié de la CMMTQ en plomberie et en chauffage. On dessert Rosemont, Villeray, le Plateau, NDG et les quartiers avoisinants.</p>
+        <div id="personalized-greeting" aria-live="polite" style="opacity:0;"></div>
+        <div class="hero-cta-group">
+          <a href="#waitlist" class="btn-primary">Rejoindre la liste d'attente</a>
+          <a href="#services" class="btn-outline">Nos services</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="hero-drop-flame" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="hero-drop-clip-fr">
+              <path d="M80 14 C80 14 24 80 24 115 a56 56 0 0 0 112 0 C136 80 80 14 80 14 Z"/>
+            </clipPath>
+          </defs>
+          <path class="hdm-flame"
+                d="M80 92 c11 14 19 24 19 37 a19 19 0 0 1-38 0 c0-10 4-16 8-20 c-1.5 7 2 12 5 15 c-2-13 1.5-25 6-32 Z"
+                fill="#D99A3D" clip-path="url(#hero-drop-clip-fr)"/>
+          <path class="hdm-outline"
+                d="M80 14 C80 14 24 80 24 115 a56 56 0 0 0 112 0 C136 80 80 14 80 14 Z"
+                fill="none" stroke="#F2F6F3" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="pipe-rule reveal" style="margin-top:2.5rem;" aria-hidden="true">
+      <div class="pipe-rule-bar"></div>
     </div>
   </div>
 </section>
@@ -114,18 +139,55 @@
     <div class="services-grid">
 
       <article class="service-card reveal" data-service="plumbing">
+        <div class="svc-illo" aria-hidden="true">
+  <svg viewBox="0 0 96 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="28" width="84" height="12" rx="5" fill="#DCEFE5" stroke="#0C4A36" stroke-width="2"/>
+    <rect x="38" y="21" width="20" height="26" rx="3" fill="#F2F6F3" stroke="#0C4A36" stroke-width="2"/>
+    <line x1="48" y1="24" x2="41" y2="44" stroke="#157A55" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="48" cy="24" r="2.5" fill="#157A55"/>
+    <path d="M14 34 L34 34 M28 30 L34 34 L28 38" stroke="#157A55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M62 34 L80 34 M68 30 L62 34 L68 38" stroke="#D99A3D" stroke-width="1.75" stroke-dasharray="5 3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="77" y1="27" x2="83" y2="33" stroke="#D99A3D" stroke-width="1.75" stroke-linecap="round"/>
+    <line x1="83" y1="27" x2="77" y2="33" stroke="#D99A3D" stroke-width="1.75" stroke-linecap="round"/>
+  </svg>
+</div>
         <h3>Plomberie</h3>
         <p>Installation de clapets antiretour, installation et inspection de conformité des chauffe-eau, réparations urgentes, diagnostic de tuyaux. On connaît la fonte des vieux plex de Rosemont aussi bien que le cuivre neuf de NDG.</p>
         <a href="/blogue/clapet-antiretour-refoulement-egout-montreal.html" class="card-link">En savoir plus sur les clapets antiretour &#8594;</a>
       </article>
 
       <article class="service-card reveal" data-service="heating">
+        <div class="svc-illo" aria-hidden="true">
+  <svg viewBox="0 0 96 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="16" y="30" width="10" height="28" rx="4" fill="#DCEFE5" stroke="#0C4A36" stroke-width="1.75"/>
+    <rect x="30" y="30" width="10" height="28" rx="4" fill="#DCEFE5" stroke="#0C4A36" stroke-width="1.75"/>
+    <rect x="44" y="30" width="10" height="28" rx="4" fill="#DCEFE5" stroke="#0C4A36" stroke-width="1.75"/>
+    <rect x="58" y="30" width="10" height="28" rx="4" fill="#DCEFE5" stroke="#0C4A36" stroke-width="1.75"/>
+    <rect x="14" y="55" width="56" height="7" rx="3" fill="#0C4A36"/>
+    <rect x="14" y="26" width="56" height="5" rx="2.5" fill="#157A55" opacity="0.4"/>
+    <path d="M20 20 C23 17 26 17 29 20 C32 23 35 23 38 20" stroke="#D99A3D" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M46 20 C49 17 52 17 55 20 C58 23 61 23 64 20" stroke="#D99A3D" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
+</div>
         <h3>Chauffage</h3>
         <p>Entretien de chaudières et de fournaises, chauffage radiant, urgences de chauffage en janvier. On garde en stock les pièces pour les systèmes de chauffage les plus répandus à Montréal.</p>
         <a href="/blogue/tuyaux-geles-hiver-montreal.html" class="card-link">Prévenir les tuyaux gelés &#8594;</a>
       </article>
 
       <article class="service-card reveal" data-service="heatpump">
+        <div class="svc-illo" aria-hidden="true">
+  <svg viewBox="0 0 96 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="56,8 76,28 76,62 36,62 36,28" fill="#DCEFE5" stroke="#0C4A36" stroke-width="1.75" stroke-linejoin="round"/>
+    <rect x="46" y="48" width="20" height="14" rx="1" fill="none" stroke="#0C4A36" stroke-width="1.5"/>
+    <rect x="4" y="36" width="28" height="24" rx="4" fill="#157A55" opacity="0.55" stroke="#0C4A36" stroke-width="1.75"/>
+    <circle cx="18" cy="48" r="8" stroke="#DCEFE5" stroke-width="1.5" fill="none"/>
+    <circle cx="18" cy="48" r="3" fill="#DCEFE5" opacity="0.6"/>
+    <path d="M32 44 C34 42 35 40 36 39" stroke="#157A55" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M33.5 37 L36 39 L34 41.5" stroke="#157A55" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M80 14 C80 8 87 4 87 4 C87 12 81 16 80 14 Z" fill="#D99A3D"/>
+    <line x1="80" y1="14" x2="87" y2="4" stroke="#D99A3D" stroke-width="1.25" stroke-linecap="round"/>
+  </svg>
+</div>
         <h3>Thermopompes + LogisVert</h3>
         <p>Installation de thermopompes murales et centrales. Notre permis RBQ vous donne accès à la subvention LogisVert d'Hydro-Québec — jusqu'à 7 840 $. On s'occupe des démarches.</p>
         <a href="/blogue/rabais-thermopompe-logisvert-quebec.html" class="card-link">En savoir plus sur la subvention &#8594;</a>
@@ -148,6 +210,9 @@
 
     <p class="reveal">On travaille par recommandations et par réputation. On ne se précipite pas. On ne prend pas de raccourcis. Quand on se pointe, le travail est fait correctement du premier coup — pour ne pas revenir régler le même problème deux fois.</p>
     <p class="reveal" style="margin-top:1rem;">Le délai est habituellement de quelques semaines. On rappelle les clients dans l'ordre. <a href="#waitlist" style="color:var(--spruce);font-weight:500;">Laissez votre nom</a> et on vous contacte.</p>
+    <div class="pipe-rule reveal" style="margin-top:2rem;" aria-hidden="true">
+      <div class="pipe-rule-bar"></div>
+    </div>
   </div>
 </section>
 
@@ -185,18 +250,82 @@
     <div class="blog-grid">
 
       <article class="blog-card reveal">
+        <div class="blog-card-illo" aria-hidden="true">
+  <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="28" width="280" height="24" fill="#F2F6F3" opacity="0.7"/>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#0C4A36" stroke-width="2"/>
+    <line x1="0" y1="52" x2="280" y2="52" stroke="#0C4A36" stroke-width="2"/>
+    <rect x="108" y="16" width="64" height="48" rx="5" fill="#DCEFE5" stroke="#0C4A36" stroke-width="2"/>
+    <line x1="140" y1="20" x2="113" y2="60" stroke="#157A55" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="140" cy="20" r="5" fill="#157A55"/>
+    <path d="M16 40 L96 40 M80 34 L96 40 L80 46" stroke="#157A55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M184 40 L252 40 M200 34 L184 40 L200 46" stroke="#D99A3D" stroke-width="2" stroke-dasharray="6 3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+</div>
         <h3><a href="/blogue/clapet-antiretour-refoulement-egout-montreal.html">Installation d'un clapet antiretour à Montréal : ce que les propriétaires de plex et de condos doivent savoir</a></h3>
         <p>La Ville vous en laisse la responsabilité. Voici ce qu'un clapet antiretour fait concrètement, quand vous en avez besoin et à quoi s'attendre lors de l'installation.</p>
         <a href="/blogue/clapet-antiretour-refoulement-egout-montreal.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Lire &#8594;</a>
       </article>
 
       <article class="blog-card reveal">
+        <div class="blog-card-illo" aria-hidden="true">
+  <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="28" width="280" height="24" fill="#F2F6F3" opacity="0.7"/>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#0C4A36" stroke-width="2"/>
+    <line x1="0" y1="52" x2="280" y2="52" stroke="#0C4A36" stroke-width="2"/>
+    <rect x="60" y="18" width="160" height="44" rx="5" fill="none" stroke="#157A55" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.6"/>
+    <g transform="translate(40,14)">
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="-7" y1="-7" x2="7" y2="7" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="7" y1="-7" x2="-7" y2="7" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(140,10)">
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="-7" y1="-7" x2="7" y2="7" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="7" y1="-7" x2="-7" y2="7" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(240,14)">
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="-7" y1="-7" x2="7" y2="7" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="7" y1="-7" x2="-7" y2="7" stroke="#0C4A36" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(80,68)" opacity="0.55">
+      <line x1="-7" y1="0" x2="7" y2="0" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="0" y1="-7" x2="0" y2="7" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(200,68)" opacity="0.55">
+      <line x1="-7" y1="0" x2="7" y2="0" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="0" y1="-7" x2="0" y2="7" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#0C4A36" stroke-width="1.25" stroke-linecap="round"/>
+    </g>
+  </svg>
+</div>
         <h3><a href="/blogue/tuyaux-geles-hiver-montreal.html">Tuyaux gelés à Montréal : comment prévenir les bris de tuyaux cet hiver</a></h3>
         <p>Quels tuyaux gèlent en premier dans un hiver montréalais, quoi faire si ça arrive, et quand appeler plutôt que d'attendre.</p>
         <a href="/blogue/tuyaux-geles-hiver-montreal.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Lire &#8594;</a>
       </article>
 
       <article class="blog-card reveal">
+        <div class="blog-card-illo" aria-hidden="true">
+  <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="140,8 186,40 186,74 94,74 94,40" fill="#F2F6F3" opacity="0.8" stroke="#0C4A36" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="116" y="56" width="48" height="18" rx="1" fill="none" stroke="#0C4A36" stroke-width="1.5"/>
+    <rect x="20" y="38" width="64" height="36" rx="5" fill="#157A55" opacity="0.5" stroke="#0C4A36" stroke-width="2"/>
+    <circle cx="52" cy="56" r="13" stroke="#DCEFE5" stroke-width="2" fill="none"/>
+    <circle cx="52" cy="56" r="5" fill="#DCEFE5" opacity="0.5"/>
+    <path d="M84 50 C88 46 91 44 94 43" stroke="#157A55" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M91 40 L94 43 L91 46" stroke="#157A55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M244 18 C244 10 254 5 254 5 C254 15 245 20 244 18 Z" fill="#D99A3D"/>
+    <line x1="244" y1="18" x2="254" y2="5" stroke="#D99A3D" stroke-width="1.25" stroke-linecap="round"/>
+    <circle cx="218" cy="54" r="18" fill="none" stroke="#0C4A36" stroke-width="1.5" opacity="0.35"/>
+  </svg>
+</div>
         <h3><a href="/blogue/rabais-thermopompe-logisvert-quebec.html">Subvention thermopompe LogisVert au Québec : jusqu'à 7 840 $ — avec un entrepreneur certifié RBQ</a></h3>
         <p>Le programme LogisVert d'Hydro-Québec rembourse une bonne partie de votre installation de thermopompe — mais seulement si votre entrepreneur est titulaire d'un permis RBQ. Le guide complet.</p>
         <a href="/blogue/rabais-thermopompe-logisvert-quebec.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Lire &#8594;</a>
