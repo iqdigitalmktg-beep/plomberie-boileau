@@ -1002,6 +1002,341 @@ footer {
 }
 
 /* ============================================================
+   HOMEPAGE REDESIGN — "Le Réseau" (pipe-spine editorial layout)
+   Brand-strategist: GO WITH CHANGES — all 7 corrections applied
+   ============================================================ */
+
+/* HERO: full-viewport split-screen */
+#hero.hero-split {
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  min-height: 100svh;
+  min-height: 100vh;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  background-image: none;
+}
+
+.hero-panel-mark {
+  background-color: var(--deep-spruce);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='4' cy='4' r='2' fill='%23F2F6F3' fill-opacity='0.06'/%3E%3C/svg%3E");
+  color: var(--ice);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3rem;
+  position: relative;
+}
+
+/* Brass descender — visual link from mark panel to pipe spine below */
+.hero-panel-mark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 2.5rem;
+  background: var(--brass);
+  z-index: 1;
+}
+
+.hero-panel-copy {
+  background: var(--ice);
+  display: flex;
+  align-items: center;
+  padding: 5rem 4.5rem 5rem 4rem;
+}
+
+.hero-copy-inner {
+  max-width: 540px;
+}
+
+/* Scale mark to hero scale in the dark panel */
+#hero.hero-split .hero-drop-flame {
+  width: 220px;
+  height: 275px;
+  filter: drop-shadow(0 20px 56px rgba(0, 0, 0, 0.38));
+}
+
+/* Colour overrides: light copy panel needs ink-family text */
+.hero-panel-copy .hero-tagline { color: var(--spruce); }
+.hero-panel-copy .hero-headline { color: var(--deep-spruce); }
+.hero-panel-copy .hero-sub { opacity: 0.85; }
+.hero-panel-copy #personalized-greeting { color: var(--spruce); }
+
+/* Secondary CTA variant for light (ice) backgrounds */
+.btn-outline--on-light {
+  display: inline-block;
+  border: 2px solid var(--spruce);
+  color: var(--spruce);
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn-outline--on-light:hover,
+.btn-outline--on-light:focus-visible {
+  background: var(--spruce);
+  color: var(--ice);
+}
+
+@media (max-width: 900px) {
+  #hero.hero-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-panel-mark {
+    min-height: 42vh;
+    padding: 3rem 1.5rem;
+  }
+  .hero-panel-mark::after { display: none; }
+  #hero.hero-split .hero-drop-flame {
+    width: 140px;
+    height: 175px;
+  }
+  .hero-panel-copy {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+  .hero-copy-inner { max-width: 100%; }
+}
+
+/* SERVICES: editorial cascade list with pipe rail */
+#services.services-editorial { padding: 5rem 0; }
+
+.services-hdr { margin-bottom: 3rem; }
+
+.services-rail-wrap {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+/* Vertical pipe spine — spruce at low opacity */
+.services-rail-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0.65rem;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 2px;
+  background: var(--spruce);
+  opacity: 0.2;
+}
+
+.service-editorial {
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Subtle cascade: each entry branches slightly further right */
+.service-editorial--01 { margin-left: 0; }
+.service-editorial--02 { margin-left: 2.5rem; }
+.service-editorial--03 { margin-left: 5rem; }
+
+/* Brass valve node at each pipe junction */
+.service-editorial::before {
+  content: '';
+  position: absolute;
+  left: -2.65rem;
+  top: 2.85rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--brass);
+  box-shadow: 0 0 0 3px var(--ice), 0 0 0 5px rgba(217, 154, 61, 0.25);
+}
+
+/* num | content | illo */
+.service-editorial-inner {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  gap: 0 2rem;
+  align-items: start;
+}
+
+/* Watermark numeral: spruce at very low opacity, sits behind heading */
+.service-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1;
+  color: rgba(21, 122, 85, 0.13);
+  user-select: none;
+  letter-spacing: -0.02em;
+  margin-top: -0.1rem;
+}
+
+.service-editorial .service-content h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: var(--deep-spruce);
+  margin-bottom: 0.5rem;
+  margin-top: 0.05rem;
+}
+
+.service-editorial .service-content p {
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+/* Branch rule between services — reuses pipe-rule visual system */
+.service-branch-rule {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.service-branch-rule::before,
+.service-branch-rule::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brass);
+  flex-shrink: 0;
+}
+
+.service-branch-rule .pipe-rule-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--brass);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-branch-rule.reveal { opacity: 1; transform: none; }
+.service-branch-rule.reveal.visible .pipe-rule-bar { transform: scaleX(1); }
+
+@media (max-width: 767px) {
+  .services-rail-wrap { padding-left: 2rem; }
+  .service-editorial--01,
+  .service-editorial--02,
+  .service-editorial--03 { margin-left: 0; }
+  .service-editorial::before { left: -2.1rem; }
+  .service-editorial-inner {
+    grid-template-columns: 2.75rem 1fr;
+    gap: 0 0.75rem;
+  }
+  .service-editorial-inner > .svc-illo { display: none; }
+  .service-num { font-size: 2rem; }
+}
+
+/* WHY WAIT: Fraunces pull-quote editorial treatment */
+#why-wait.why-wait-editorial { padding: 5rem 0 4.5rem; }
+
+.why-wait-pull {
+  border: none;
+  margin: 0 0 3rem 0;
+  padding: 0 0 2.5rem 0;
+  border-bottom: 1px solid rgba(21, 122, 85, 0.2);
+}
+
+.why-wait-pull p {
+  font-family: var(--font-tagline);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  line-height: 1.38;
+  color: var(--deep-spruce);
+  max-width: 72%;
+}
+
+.why-wait-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--spruce);
+  margin-bottom: 1.25rem;
+}
+
+.why-wait-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  max-width: 840px;
+}
+
+.why-wait-cols p {
+  line-height: 1.75;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .why-wait-pull p { max-width: 100%; }
+  .why-wait-cols { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* WAITLIST: asymmetric 40/60 split */
+#waitlist.waitlist-editorial { padding: 5rem 0; }
+
+.waitlist-split {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.waitlist-message h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  color: var(--ice);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.waitlist-message p {
+  color: var(--ice);
+  opacity: 0.8;
+  line-height: 1.65;
+  font-size: 0.975rem;
+}
+
+@media (max-width: 767px) {
+  .waitlist-split { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* BLOG: asymmetric 1+2 feature grid */
+#blog.blog-editorial { padding: 5rem 0; }
+
+.blog-asymmetric {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.blog-card--feature .blog-card-illo svg { max-height: 180px; }
+
+.blog-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blog-secondary .blog-card-illo svg { max-height: 80px; }
+
+@media (max-width: 900px) {
+  .blog-asymmetric { grid-template-columns: 1fr; }
+  .blog-card--feature .blog-card-illo svg { max-height: 120px; }
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
