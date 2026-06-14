@@ -236,19 +236,24 @@ a {
     display: flex;
   }
 
+  .site-nav {
+    position: relative;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
+    z-index: 100;
     background: var(--deep-spruce);
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding: 1rem 1.5rem 1.5rem;
+    padding: 0.5rem 1.5rem 1.25rem;
     border-top: 1px solid rgba(242, 246, 243, 0.1);
-    box-shadow: 0 8px 16px rgba(12, 74, 54, 0.3);
+    box-shadow: 0 8px 24px rgba(12, 74, 54, 0.35);
   }
 
   .nav-links li {
@@ -264,14 +269,28 @@ a {
     display: block;
     padding: 0.75rem 0;
     font-size: 1rem;
+    color: var(--ice);
+  }
+
+  /* Visual separator — waitlist button + lang toggle sit below the fold */
+  .nav-links li:nth-last-child(2) {
+    margin-top: 0.5rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid rgba(242, 246, 243, 0.18);
+    border-bottom: none;
+  }
+
+  /* Language toggle — compact, subtle */
+  .nav-links a.lang-toggle {
+    display: inline-block;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    opacity: 0.65;
+    letter-spacing: 0.08em;
   }
 
   .nav-open .nav-links {
     display: flex;
-  }
-
-  .site-nav {
-    position: sticky;
   }
 }
 
@@ -1010,8 +1029,10 @@ footer {
 #hero.hero-split {
   display: grid;
   grid-template-columns: 45fr 55fr;
+  grid-template-rows: 1fr;
   min-height: 100svh;
   min-height: 100vh;
+  align-items: stretch;
   padding: 0;
   color: var(--ink);
   background: transparent;
@@ -1027,6 +1048,8 @@ footer {
   justify-content: center;
   padding: 5rem 3rem;
   position: relative;
+  min-height: 100svh;
+  min-height: 100vh;
 }
 
 /* Brass descender — visual link from mark panel to pipe spine below */
@@ -1055,8 +1078,8 @@ footer {
 
 /* Scale mark to hero scale in the dark panel */
 #hero.hero-split .hero-drop-flame {
-  width: 220px;
-  height: 275px;
+  width: 260px;
+  height: 325px;
   filter: drop-shadow(0 20px 56px rgba(0, 0, 0, 0.38));
 }
 
@@ -1095,13 +1118,15 @@ footer {
     min-height: auto;
   }
   .hero-panel-mark {
-    min-height: 42vh;
-    padding: 3rem 1.5rem;
+    min-height: 45vh;
+    max-height: 45vh;
+    overflow: hidden;
+    padding: 2.5rem 1.5rem;
   }
   .hero-panel-mark::after { display: none; }
   #hero.hero-split .hero-drop-flame {
-    width: 140px;
-    height: 175px;
+    width: 160px;
+    height: 200px;
   }
   .hero-panel-copy {
     padding: 2.5rem 1.5rem 3rem;
@@ -1168,7 +1193,7 @@ footer {
   font-weight: 700;
   font-size: clamp(2.25rem, 4.5vw, 3.75rem);
   line-height: 1;
-  color: rgba(21, 122, 85, 0.13);
+  color: rgba(21, 122, 85, 0.18);
   user-select: none;
   letter-spacing: -0.02em;
   margin-top: -0.1rem;
