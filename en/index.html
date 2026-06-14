@@ -213,18 +213,17 @@
 <!-- ============================================================
      WHY WAIT
      ============================================================ -->
-<section id="why-wait" aria-labelledby="wait-title">
+<section id="why-wait" class="why-wait-editorial" aria-labelledby="wait-title">
   <div class="container">
-    <h2 class="section-title reveal" id="wait-title">Why is there a wait?</h2>
-
-    <blockquote class="reveal">
+    <blockquote class="why-wait-pull reveal">
       <p>"Because every job is done by a certified technician — not a sub you've never met."</p>
     </blockquote>
-
-    <p class="reveal">We work by referral and reputation. We don't rush. We don't cut corners. When we show up, the job gets done right the first time — so we don't come back for the same problem twice.</p>
-    <p class="reveal" style="margin-top:1rem;">The wait is usually a few weeks. We call clients back in order. <a href="#waitlist" style="color:var(--spruce);font-weight:500;">Add your name</a> and we'll reach out.</p>
-    <div class="pipe-rule reveal" style="margin-top:2rem;" aria-hidden="true">
-      <div class="pipe-rule-bar"></div>
+    <div class="why-wait-body">
+      <h2 class="why-wait-heading reveal" id="wait-title">Why is there a wait?</h2>
+      <div class="why-wait-cols">
+        <p class="reveal">We work by referral and reputation. We don't rush. We don't cut corners. When we show up, the job gets done right the first time — so we don't come back for the same problem twice.</p>
+        <p class="reveal">The wait is usually a few weeks. We call clients back in order. <a href="#waitlist" style="color:var(--spruce);font-weight:500;">Add your name</a> and we'll reach out.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -232,37 +231,39 @@
 <!-- ============================================================
      WAITLIST
      ============================================================ -->
-<section id="waitlist" aria-labelledby="waitlist-title">
+<section id="waitlist" class="waitlist-editorial" aria-labelledby="waitlist-title">
   <div class="container">
-    <h2 class="reveal" id="waitlist-title" style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:0.5rem;color:var(--ice);">Join the waitlist</h2>
-    <p class="reveal" style="opacity:0.8;margin-bottom:1.5rem;">We're booked a few weeks out. Leave your email and we'll call you in order — no automated drip, just a real call.</p>
-
-    <form id="waitlist-form" class="waitlist-form reveal" novalidate>
-      <div>
-        <label for="wl-name" style="display:block;margin-bottom:0.35rem;font-size:0.9rem;opacity:0.8;">First name <span style="opacity:0.6;">(optional)</span></label>
-        <input type="text" id="wl-name" name="name" placeholder="Marie" autocomplete="given-name">
+    <div class="waitlist-split">
+      <div class="waitlist-message reveal">
+        <h2 id="waitlist-title">Join the waitlist</h2>
+        <p>We're booked a few weeks out. Leave your email and we'll call you in order — no automated drip, just a real call.</p>
       </div>
-      <div>
-        <label for="wl-email" style="display:block;margin-bottom:0.35rem;font-size:0.9rem;opacity:0.8;">Email address <span aria-hidden="true" style="color:var(--brass);">*</span></label>
-        <input type="email" id="wl-email" name="email" placeholder="marie@example.com" required autocomplete="email">
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;margin-top:0.25rem;">Add me to the list</button>
-      <p style="font-size:0.8rem;opacity:0.6;margin-top:0.25rem;">No spam. Unsubscribe any time. We call when it's your turn.</p>
-    </form>
+      <form id="waitlist-form" class="waitlist-form reveal" novalidate>
+        <div>
+          <label for="wl-name" style="display:block;margin-bottom:0.35rem;font-size:0.9rem;opacity:0.8;">First name <span style="opacity:0.6;">(optional)</span></label>
+          <input type="text" id="wl-name" name="name" placeholder="Marie" autocomplete="given-name">
+        </div>
+        <div>
+          <label for="wl-email" style="display:block;margin-bottom:0.35rem;font-size:0.9rem;opacity:0.8;">Email address <span aria-hidden="true" style="color:var(--brass);">*</span></label>
+          <input type="email" id="wl-email" name="email" placeholder="marie@example.com" required autocomplete="email">
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:0.25rem;">Add me to the list</button>
+        <p style="font-size:0.8rem;opacity:0.6;margin-top:0.25rem;">No spam. Unsubscribe any time. We call when it's your turn.</p>
+      </form>
+    </div>
   </div>
 </section>
 
 <!-- ============================================================
      BLOG
      ============================================================ -->
-<section id="blog" aria-labelledby="blog-title">
+<section id="blog" class="blog-editorial" aria-labelledby="blog-title">
   <div class="container">
     <h2 class="section-title reveal" id="blog-title">From the blog</h2>
     <p class="section-lead reveal">Plain answers to the questions our neighbours ask most.</p>
+    <div class="blog-asymmetric">
 
-    <div class="blog-grid">
-
-      <article class="blog-card reveal">
+      <article class="blog-card blog-card--feature reveal">
         <div class="blog-card-illo" aria-hidden="true">
   <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="0" y="28" width="280" height="24" fill="#F2F6F3" opacity="0.7"/>
@@ -280,8 +281,10 @@
         <a href="blog/backwater-valve-sewer-backup-montreal.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Read &#8594;</a>
       </article>
 
-      <article class="blog-card reveal">
-        <div class="blog-card-illo" aria-hidden="true">
+      <div class="blog-secondary">
+
+        <article class="blog-card reveal">
+          <div class="blog-card-illo" aria-hidden="true">
   <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="0" y="28" width="280" height="24" fill="#F2F6F3" opacity="0.7"/>
     <line x1="0" y1="28" x2="280" y2="28" stroke="#0C4A36" stroke-width="2"/>
@@ -319,13 +322,13 @@
     </g>
   </svg>
 </div>
-        <h3><a href="blog/frozen-pipes-montreal-winter.html">Frozen Pipes in Montreal: How to Prevent Burst Pipes This Winter</a></h3>
-        <p>Which pipes freeze first in a Montreal winter, what to do if one freezes, and when to call instead of waiting it out.</p>
-        <a href="blog/frozen-pipes-montreal-winter.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Read &#8594;</a>
-      </article>
+          <h3><a href="blog/frozen-pipes-montreal-winter.html">Frozen Pipes in Montreal: How to Prevent Burst Pipes This Winter</a></h3>
+          <p>Which pipes freeze first in a Montreal winter, what to do if one freezes, and when to call instead of waiting it out.</p>
+          <a href="blog/frozen-pipes-montreal-winter.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Read &#8594;</a>
+        </article>
 
-      <article class="blog-card reveal">
-        <div class="blog-card-illo" aria-hidden="true">
+        <article class="blog-card reveal">
+          <div class="blog-card-illo" aria-hidden="true">
   <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
     <polygon points="140,8 186,40 186,74 94,74 94,40" fill="#F2F6F3" opacity="0.8" stroke="#0C4A36" stroke-width="2" stroke-linejoin="round"/>
     <rect x="116" y="56" width="48" height="18" rx="1" fill="none" stroke="#0C4A36" stroke-width="1.5"/>
@@ -339,11 +342,12 @@
     <circle cx="218" cy="54" r="18" fill="none" stroke="#0C4A36" stroke-width="1.5" opacity="0.35"/>
   </svg>
 </div>
-        <h3><a href="blog/logisvert-heat-pump-rebate-montreal.html">LogisVert Heat Pump Rebate in Quebec: Get Up to $7,840 — With an RBQ Contractor</a></h3>
-        <p>Hydro-Québec's LogisVert program pays big for heat pump installations — but only if your contractor is RBQ-licensed. Here's the whole guide.</p>
-        <a href="blog/logisvert-heat-pump-rebate-montreal.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Read &#8594;</a>
-      </article>
+          <h3><a href="blog/logisvert-heat-pump-rebate-montreal.html">LogisVert Heat Pump Rebate in Quebec: Get Up to $7,840 — With an RBQ Contractor</a></h3>
+          <p>Hydro-Québec's LogisVert program pays big for heat pump installations — but only if your contractor is RBQ-licensed. Here's the whole guide.</p>
+          <a href="blog/logisvert-heat-pump-rebate-montreal.html" style="color:var(--spruce);font-weight:500;font-size:0.9rem;">Read &#8594;</a>
+        </article>
 
+      </div>
     </div>
   </div>
 </section>
@@ -406,6 +410,7 @@
   </div>
 </div>
 
+<script>window.BOILEAU_LANG = 'en';</script>
 <script src="../js/main.js"></script>
 </body>
 </html>

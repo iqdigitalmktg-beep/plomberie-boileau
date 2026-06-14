@@ -1396,7 +1396,8 @@ footer {
   }
 
   /* Pipe-rule — expand immediately, no transition */
-  .pipe-rule .pipe-rule-bar {
+  .pipe-rule .pipe-rule-bar,
+  .service-branch-rule .pipe-rule-bar {
     transform: scaleX(1);
     transition: none;
   }
