@@ -154,37 +154,37 @@
 
           <!-- PLUMBING: supply/drain stack + brass valve nodes -->
           <g class="bp-layer bp-system bp-plumbing" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="282,438 282,452 40,452" stroke="#157A55" stroke-width="2" fill="none"/>
-            <line x1="282" y1="110" x2="282" y2="440" stroke="#157A55" stroke-width="2.5"/>
-            <line x1="282" y1="150" x2="255" y2="150" stroke="#157A55" stroke-width="2"/>
-            <line x1="282" y1="272" x2="255" y2="272" stroke="#157A55" stroke-width="2"/>
-            <line x1="282" y1="398" x2="255" y2="398" stroke="#157A55" stroke-width="2"/>
+            <polyline class="bp-pipe" points="282,438 282,452 40,452" stroke="#157A55" stroke-width="2" fill="none"/>
+            <line class="bp-pipe" x1="282" y1="110" x2="282" y2="440" stroke="#157A55" stroke-width="2.5"/>
+            <line class="bp-pipe" x1="282" y1="150" x2="255" y2="150" stroke="#157A55" stroke-width="2"/>
+            <line class="bp-pipe" x1="282" y1="272" x2="255" y2="272" stroke="#157A55" stroke-width="2"/>
+            <line class="bp-pipe" x1="282" y1="398" x2="255" y2="398" stroke="#157A55" stroke-width="2"/>
             <circle cx="255" cy="150" r="3" fill="#157A55"/>
             <circle cx="255" cy="272" r="3" fill="#157A55"/>
             <circle cx="255" cy="398" r="3" fill="#157A55"/>
             <circle cx="282" cy="420" r="6" fill="#F2F6F3" stroke="#157A55" stroke-width="2"/>
             <!-- brass valve nodes only -->
-            <circle cx="282" cy="150" r="4.5" fill="#D99A3D"/>
-            <circle cx="282" cy="272" r="4.5" fill="#D99A3D"/>
-            <circle cx="282" cy="398" r="4.5" fill="#D99A3D"/>
+            <circle class="bp-node" cx="282" cy="150" r="4.5" fill="#D99A3D"/>
+            <circle class="bp-node" cx="282" cy="272" r="4.5" fill="#D99A3D"/>
+            <circle class="bp-node" cx="282" cy="398" r="4.5" fill="#D99A3D"/>
           </g>
 
           <!-- HEATING: boiler, risers, radiators + soft warm glow -->
           <g class="bp-layer bp-system bp-heating" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="105" cy="415" rx="60" ry="34" fill="#D99A3D" opacity="0.10"/>
-            <ellipse cx="235" cy="307" rx="45" ry="26" fill="#D99A3D" opacity="0.08"/>
-            <ellipse cx="120" cy="184" rx="42" ry="24" fill="#D99A3D" opacity="0.08"/>
+            <ellipse class="bp-warm-glow" cx="105" cy="415" rx="60" ry="34" fill="#D99A3D" opacity="0.10"/>
+            <ellipse class="bp-warm-glow" cx="235" cy="307" rx="45" ry="26" fill="#D99A3D" opacity="0.08"/>
+            <ellipse class="bp-warm-glow" cx="120" cy="184" rx="42" ry="24" fill="#D99A3D" opacity="0.08"/>
             <!-- boiler -->
             <rect x="85" y="398" width="42" height="42" fill="#F2F6F3" stroke="#0C4A36" stroke-width="2"/>
             <circle cx="106" cy="419" r="8" fill="none" stroke="#157A55" stroke-width="1.75"/>
-            <line x1="106" y1="398" x2="106" y2="330" stroke="#0C4A36" stroke-width="1.5"/>
+            <line class="bp-heat-flow" x1="106" y1="398" x2="106" y2="330" stroke="#0C4A36" stroke-width="1.5"/>
             <!-- supply riser + branches -->
-            <line x1="132" y1="415" x2="132" y2="130" stroke="#157A55" stroke-width="2.25"/>
-            <line x1="106" y1="415" x2="132" y2="415" stroke="#157A55" stroke-width="2"/>
-            <line x1="132" y1="307" x2="210" y2="307" stroke="#157A55" stroke-width="2"/>
-            <line x1="132" y1="184" x2="120" y2="184" stroke="#157A55" stroke-width="2"/>
+            <line class="bp-heat-flow" x1="132" y1="415" x2="132" y2="130" stroke="#157A55" stroke-width="2.25"/>
+            <line class="bp-heat-flow" x1="106" y1="415" x2="132" y2="415" stroke="#157A55" stroke-width="2"/>
+            <line class="bp-heat-flow" x1="132" y1="307" x2="210" y2="307" stroke="#157A55" stroke-width="2"/>
+            <line class="bp-heat-flow" x1="132" y1="184" x2="120" y2="184" stroke="#157A55" stroke-width="2"/>
             <!-- radiators (ribbed) -->
-            <g stroke="#0C4A36" stroke-width="1.5">
+            <g class="bp-radiator" stroke="#0C4A36" stroke-width="1.5">
               <rect x="208" y="300" width="54" height="15" fill="#DCEFE5"/>
               <line x1="221" y1="300" x2="221" y2="315"/>
               <line x1="235" y1="300" x2="235" y2="315"/>
@@ -209,12 +209,12 @@
             <!-- indoor wall heads -->
             <rect x="206" y="210" width="56" height="16" rx="4" fill="#F2F6F3" stroke="#0C4A36" stroke-width="1.75"/>
             <rect x="206" y="90"  width="56" height="16" rx="4" fill="#F2F6F3" stroke="#0C4A36" stroke-width="1.75"/>
-            <!-- calm airflow arcs (mint) -->
+            <!-- airflow arcs: warm at one head, cool at the other → "does both" -->
             <g stroke="#157A55" stroke-width="1.4" fill="none" opacity="0.85">
-              <path d="M212 232 Q234 244 256 232"/>
-              <path d="M208 240 Q234 256 260 240"/>
-              <path d="M212 112 Q234 124 256 112"/>
-              <path d="M208 120 Q234 136 260 120"/>
+              <path class="bp-air-cool" d="M212 232 Q234 244 256 232"/>
+              <path class="bp-air-cool" d="M208 240 Q234 256 260 240"/>
+              <path class="bp-air-warm" d="M212 112 Q234 124 256 112"/>
+              <path class="bp-air-warm" d="M208 120 Q234 136 260 120"/>
             </g>
           </g>
 

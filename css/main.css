@@ -1235,15 +1235,67 @@ footer {
   margin-bottom: 0.9rem;
 }
 
-/* ---- Blueprint SVG layers ---- */
+/* ---- Blueprint SVG layers ----
+   Inactive systems recede to faint blueprint lines; the active system
+   dominates with full opacity, heavier lines and a distinct treatment so
+   each stage swap reads instantly. Only opacity/transform are transitioned
+   (GPU-composited); the stroke/weight swap is masked by the opacity fade. */
 .bp-layer { transition: opacity 0.7s ease; }
 .bp-structure { opacity: 0.9; }
 .bp-framing { opacity: 0.12; }
-.bp-system { opacity: 0.1; }
+.bp-system { opacity: 0.16; }
+
+.bp-node {
+  transition: transform 0.5s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.bp-warm-glow { transition: opacity 0.6s ease; }
 
 .services-scrolly[data-active-stage="plumbing"] .bp-plumbing,
 .services-scrolly[data-active-stage="heating"]  .bp-heating,
 .services-scrolly[data-active-stage="heatpump"] .bp-heatpump {
+  opacity: 1;
+}
+
+/* PLUMBING active — cool spruce supply/drain pipes go thicker and fully
+   opaque, brass valve nodes pop at the fittings. Reads "water". */
+.services-scrolly[data-active-stage="plumbing"] .bp-plumbing .bp-pipe {
+  stroke: var(--deep-spruce);
+  stroke-width: 4;
+}
+.services-scrolly[data-active-stage="plumbing"] .bp-plumbing .bp-node {
+  transform: scale(1.35);
+}
+
+/* HEATING active — brass earns its keep as the warmth signal: hot-water
+   risers, branches and radiators glow amber while the boiler stays spruce.
+   Unmistakably warm against plumbing's cool spruce. */
+.services-scrolly[data-active-stage="heating"] .bp-heating .bp-heat-flow {
+  stroke: var(--brass);
+  stroke-width: 3.5;
+}
+.services-scrolly[data-active-stage="heating"] .bp-heating .bp-warm-glow {
+  opacity: 0.5;
+}
+.services-scrolly[data-active-stage="heating"] .bp-heating .bp-radiator rect {
+  fill: rgba(217, 154, 61, 0.32);
+  stroke: var(--brass);
+}
+.services-scrolly[data-active-stage="heating"] .bp-heating .bp-radiator line {
+  stroke: var(--brass);
+}
+
+/* HEAT PUMP active — reads as "does both": warm brass airflow at one head,
+   cool spruce airflow at the other. Distinct from both prior stages. */
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-air-warm {
+  stroke: var(--brass);
+  stroke-width: 2.8;
+  opacity: 1;
+}
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-air-cool {
+  stroke: var(--spruce);
+  stroke-width: 2.8;
   opacity: 1;
 }
 
