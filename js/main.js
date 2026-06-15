@@ -159,6 +159,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Services blueprint scrollytelling ----
+  // Passive IntersectionObserver only — no scroll listeners, no rAF.
+  // It flips data-active-stage; CSS handles the opacity cross-fades.
+  const scrolly = document.querySelector('.services-scrolly');
+  if (scrolly && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const panels = scrolly.querySelectorAll('.scrolly-panel[data-stage]');
+    if (panels.length) {
+      const stageObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting && e.target.dataset.stage) {
+            scrolly.setAttribute('data-active-stage', e.target.dataset.stage);
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      panels.forEach(p => stageObserver.observe(p));
+    }
+  }
+
   // ---- Waitlist form ----
   document.getElementById('waitlist-form')?.addEventListener('submit', e => {
     e.preventDefault();

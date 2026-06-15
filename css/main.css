@@ -1135,127 +1135,137 @@ footer {
 }
 
 /* SERVICES: editorial cascade list with pipe rail */
-#services.services-editorial { padding: 5rem 0; }
+/* ============================================================
+   SERVICES — Blueprint scrollytelling
+   A Montreal-plex line drawing pins to the viewport (CSS sticky)
+   while three content panels scroll past. IntersectionObserver
+   (no scroll listeners) sets data-active-stage; only opacity is
+   animated (GPU-composited). Reduced-motion falls back to a plain
+   stacked layout further down this file.
+   ============================================================ */
+#services.services-scrolly { padding: 5rem 0 0; }
 
-.services-hdr { margin-bottom: 3rem; }
+.services-scrolly .services-hdr { margin-bottom: 1rem; }
 
-.services-rail-wrap {
-  position: relative;
-  padding-left: 2.5rem;
-}
+/* The pinned graphic and the scrolling panels share one scroll
+   range: the panels are pulled up over the sticky graphic. */
+.scrolly-wrap { position: relative; }
 
-/* Vertical pipe spine — spruce at low opacity */
-.services-rail-wrap::before {
-  content: '';
-  position: absolute;
-  left: 0.65rem;
-  top: 0.75rem;
-  bottom: 0.75rem;
-  width: 2px;
-  background: var(--spruce);
-  opacity: 0.2;
-}
-
-.service-editorial {
-  position: relative;
-  padding: 2rem 0;
-}
-
-/* Subtle cascade: each entry branches slightly further right */
-.service-editorial--01 { margin-left: 0; }
-.service-editorial--02 { margin-left: 2.5rem; }
-.service-editorial--03 { margin-left: 5rem; }
-
-/* Brass valve node at each pipe junction */
-.service-editorial::before {
-  content: '';
-  position: absolute;
-  left: -2.65rem;
-  top: 2.85rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--brass);
-  box-shadow: 0 0 0 3px var(--ice), 0 0 0 5px rgba(217, 154, 61, 0.25);
-}
-
-/* num | content | illo */
-.service-editorial-inner {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr auto;
-  gap: 0 2rem;
-  align-items: start;
-}
-
-/* Watermark numeral: spruce at very low opacity, sits behind heading */
-.service-num {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
-  line-height: 1;
-  color: rgba(21, 122, 85, 0.18);
-  user-select: none;
-  letter-spacing: -0.02em;
-  margin-top: -0.1rem;
-}
-
-.service-editorial .service-content h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-  color: var(--deep-spruce);
-  margin-bottom: 0.5rem;
-  margin-top: 0.05rem;
-}
-
-.service-editorial .service-content p {
-  line-height: 1.7;
-  color: var(--ink);
-  margin-bottom: 0.75rem;
-}
-
-/* Branch rule between services — reuses pipe-rule visual system */
-.service-branch-rule {
+.scrolly-graphic {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  justify-content: flex-start;
+  padding-left: max(5vw, 1.5rem);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.service-branch-rule::before,
-.service-branch-rule::after {
-  content: '';
+.blueprint {
+  width: min(46vw, 540px);
+  max-height: 86vh;
+}
+
+.blueprint svg {
+  width: 100%;
+  height: auto;
+  max-height: 86vh;
   display: block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--brass);
-  flex-shrink: 0;
 }
 
-.service-branch-rule .pipe-rule-bar {
-  flex: 1;
-  height: 3px;
-  background: var(--brass);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+.scrolly-panels {
+  position: relative;
+  margin-top: -100vh;
+  margin-top: -100svh;
+  z-index: 1;
 }
 
-.service-branch-rule.reveal { opacity: 1; transform: none; }
-.service-branch-rule.reveal.visible .pipe-rule-bar { transform: scaleX(1); }
+.scrolly-panel {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 max(5vw, 1.5rem);
+  transition: opacity 0.5s ease;
+}
 
-@media (max-width: 767px) {
-  .services-rail-wrap { padding-left: 2rem; }
-  .service-editorial--01,
-  .service-editorial--02,
-  .service-editorial--03 { margin-left: 0; }
-  .service-editorial::before { left: -2.1rem; }
-  .service-editorial-inner {
-    grid-template-columns: 2.75rem 1fr;
-    gap: 0 0.75rem;
+/* Inactive panels recede so the active one reads clearly */
+.services-scrolly[data-active-stage="plumbing"] .scrolly-panel:not([data-stage="plumbing"]),
+.services-scrolly[data-active-stage="heating"]  .scrolly-panel:not([data-stage="heating"]),
+.services-scrolly[data-active-stage="heatpump"] .scrolly-panel:not([data-stage="heatpump"]) {
+  opacity: 0.32;
+}
+
+.scrolly-card {
+  width: min(420px, 42vw);
+  background: var(--ice);
+  border: 1px solid rgba(12, 74, 54, 0.12);
+  border-radius: 14px;
+  padding: 2rem 2rem 1.75rem;
+  box-shadow: 0 18px 50px -28px rgba(12, 74, 54, 0.45);
+}
+
+.scrolly-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1;
+  color: rgba(21, 122, 85, 0.18);
+  letter-spacing: -0.02em;
+  user-select: none;
+  margin-bottom: 0.5rem;
+}
+
+.scrolly-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--deep-spruce);
+  margin-bottom: 0.6rem;
+}
+
+.scrolly-card p {
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+
+/* ---- Blueprint SVG layers ---- */
+.bp-layer { transition: opacity 0.7s ease; }
+.bp-structure { opacity: 0.9; }
+.bp-framing { opacity: 0.12; }
+.bp-system { opacity: 0.1; }
+
+.services-scrolly[data-active-stage="plumbing"] .bp-plumbing,
+.services-scrolly[data-active-stage="heating"]  .bp-heating,
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump {
+  opacity: 1;
+}
+
+/* Mobile: graphic pinned to the top band, card sits below it */
+@media (max-width: 900px) {
+  .scrolly-graphic {
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 0;
+    padding-top: 6vh;
   }
-  .service-editorial-inner > .svc-illo { display: none; }
-  .service-num { font-size: 2rem; }
+  .blueprint {
+    width: min(72vw, 340px);
+    max-height: 44vh;
+  }
+  .blueprint svg { max-height: 44vh; }
+  .scrolly-panel {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 1.25rem 6vh;
+  }
+  .scrolly-card { width: min(460px, 92vw); }
 }
 
 /* WHY WAIT: Fraunces pull-quote editorial treatment */
@@ -1426,4 +1436,23 @@ footer {
     transform: scaleX(1);
     transition: none;
   }
+
+  /* Services blueprint — no pinning, no scroll animation.
+     Fall back to a plain stacked layout; the decorative SVG is
+     dropped and the three service cards stack in source order. */
+  .scrolly-graphic { display: none; }
+  .scrolly-panels { margin-top: 0; }
+  .scrolly-panel {
+    min-height: auto;
+    display: block;
+    padding: 1.25rem 0;
+    opacity: 1 !important;
+    transition: none;
+  }
+  .scrolly-card {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .bp-layer { transition: none; }
 }
