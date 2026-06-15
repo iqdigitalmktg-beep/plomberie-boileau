@@ -1200,6 +1200,22 @@ footer {
   opacity: 0.32;
 }
 
+/* Stage 03 dwell — the heat pump panel runs ~one card-height longer so the
+   pinned graphic + card hold at the top before the section releases. Pure
+   layout: a taller sticky track plus a sticky card (no scroll-listener JS,
+   transform/opacity only). */
+.scrolly-panel[data-stage="heatpump"] {
+  min-height: 150vh;
+  min-height: 150svh;
+  align-items: flex-start;
+}
+.scrolly-panel[data-stage="heatpump"] .scrolly-card {
+  position: sticky;
+  top: 50vh;
+  top: 50svh;
+  transform: translateY(-50%);
+}
+
 .scrolly-card {
   width: min(420px, 42vw);
   background: var(--ice);
@@ -1250,7 +1266,8 @@ footer {
   transform-box: fill-box;
   transform-origin: center;
 }
-.bp-warm-glow { transition: opacity 0.6s ease; }
+.bp-warm-glow,
+.bp-cool-glow { transition: opacity 0.6s ease; }
 
 .services-scrolly[data-active-stage="plumbing"] .bp-plumbing,
 .services-scrolly[data-active-stage="heating"]  .bp-heating,
@@ -1286,16 +1303,36 @@ footer {
   stroke: var(--brass);
 }
 
-/* HEAT PUMP active — reads as "does both": warm brass airflow at one head,
-   cool spruce airflow at the other. Distinct from both prior stages. */
+/* HEAT PUMP active — the only dual-tone stage and the most saturated of the
+   three: mint floods the cooling side (condenser, lower head, glow) while
+   brass marks the heating side (upper head, glow, warm airflow). Reads "does
+   both" and is unmistakable next to the spruce-only and brass-only stages. */
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-cool-glow {
+  opacity: 0.9;
+}
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-warm-glow {
+  opacity: 0.5;
+}
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-hp-unit {
+  fill: var(--mint);
+  stroke: var(--deep-spruce);
+}
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-head-cool {
+  fill: var(--mint);
+  stroke: var(--spruce);
+}
+.services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-head-warm {
+  fill: rgba(217, 154, 61, 0.32);
+  stroke: var(--brass);
+}
 .services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-air-warm {
   stroke: var(--brass);
-  stroke-width: 2.8;
+  stroke-width: 3;
   opacity: 1;
 }
 .services-scrolly[data-active-stage="heatpump"] .bp-heatpump .bp-air-cool {
   stroke: var(--spruce);
-  stroke-width: 2.8;
+  stroke-width: 3;
   opacity: 1;
 }
 
@@ -1318,6 +1355,16 @@ footer {
     padding: 0 1.25rem 6vh;
   }
   .scrolly-card { width: min(460px, 92vw); }
+  /* No extra dwell on mobile — keep the heat pump panel a single screen */
+  .scrolly-panel[data-stage="heatpump"] {
+    min-height: 100vh;
+    min-height: 100svh;
+    align-items: flex-end;
+  }
+  .scrolly-panel[data-stage="heatpump"] .scrolly-card {
+    position: static;
+    transform: none;
+  }
 }
 
 /* WHY WAIT: Fraunces pull-quote editorial treatment */
@@ -1494,17 +1541,22 @@ footer {
      dropped and the three service cards stack in source order. */
   .scrolly-graphic { display: none; }
   .scrolly-panels { margin-top: 0; }
-  .scrolly-panel {
+  .scrolly-panel,
+  .scrolly-panel[data-stage="heatpump"] {
     min-height: auto;
     display: block;
+    align-items: stretch;
     padding: 1.25rem 0;
     opacity: 1 !important;
     transition: none;
   }
-  .scrolly-card {
+  .scrolly-card,
+  .scrolly-panel[data-stage="heatpump"] .scrolly-card {
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
+    position: static;
+    transform: none;
   }
   .bp-layer { transition: none; }
 }

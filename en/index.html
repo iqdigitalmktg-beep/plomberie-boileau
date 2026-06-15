@@ -196,21 +196,25 @@
             </g>
           </g>
 
-          <!-- HEAT PUMPS: outdoor unit, indoor heads, calm airflow (mint, no brass) -->
+          <!-- HEAT PUMPS: outdoor unit, indoor heads, dual warm+cool airflow -->
           <g class="bp-layer bp-system bp-heatpump" stroke-linecap="round" stroke-linejoin="round">
-            <!-- outdoor condenser -->
-            <rect x="306" y="400" width="44" height="40" fill="#F2F6F3" stroke="#0C4A36" stroke-width="2"/>
+            <!-- mint cooling glows + brass warm glow (faint until active) -->
+            <ellipse class="bp-cool-glow" cx="234" cy="218" rx="56" ry="30" fill="#DCEFE5" opacity="0.14"/>
+            <ellipse class="bp-cool-glow" cx="328" cy="420" rx="40" ry="30" fill="#DCEFE5" opacity="0.14"/>
+            <ellipse class="bp-warm-glow" cx="234" cy="98"  rx="56" ry="30" fill="#D99A3D" opacity="0.10"/>
+            <!-- outdoor condenser (cooling unit) -->
+            <rect class="bp-hp-unit" x="306" y="400" width="44" height="40" fill="#F2F6F3" stroke="#0C4A36" stroke-width="2"/>
             <circle cx="328" cy="420" r="13" fill="none" stroke="#157A55" stroke-width="1.75"/>
             <path d="M328 420 L328 409 M328 420 L337 426 M328 420 L319 426" stroke="#157A55" stroke-width="1.5"/>
             <!-- line set -->
             <polyline points="306,408 292,408 292,98" stroke="#157A55" stroke-width="2" fill="none"/>
             <line x1="292" y1="218" x2="262" y2="218" stroke="#157A55" stroke-width="2"/>
             <line x1="292" y1="98"  x2="262" y2="98"  stroke="#157A55" stroke-width="2"/>
-            <!-- indoor wall heads -->
-            <rect x="206" y="210" width="56" height="16" rx="4" fill="#F2F6F3" stroke="#0C4A36" stroke-width="1.75"/>
-            <rect x="206" y="90"  width="56" height="16" rx="4" fill="#F2F6F3" stroke="#0C4A36" stroke-width="1.75"/>
-            <!-- airflow arcs: warm at one head, cool at the other → "does both" -->
-            <g stroke="#157A55" stroke-width="1.4" fill="none" opacity="0.85">
+            <!-- indoor wall heads: lower = cooling (mint), upper = heating (brass) -->
+            <rect class="bp-head-cool" x="206" y="210" width="56" height="16" rx="4" fill="#F2F6F3" stroke="#0C4A36" stroke-width="1.75"/>
+            <rect class="bp-head-warm" x="206" y="90"  width="56" height="16" rx="4" fill="#F2F6F3" stroke="#0C4A36" stroke-width="1.75"/>
+            <!-- airflow arcs: brass (warm) up top, cool below → "does both" -->
+            <g stroke="#157A55" stroke-width="1.4" fill="none" opacity="0.9">
               <path class="bp-air-cool" d="M212 232 Q234 244 256 232"/>
               <path class="bp-air-cool" d="M208 240 Q234 256 260 240"/>
               <path class="bp-air-warm" d="M212 112 Q234 124 256 112"/>
