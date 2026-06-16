@@ -1,0 +1,137 @@
+- generic [active] [ref=e1]:
+  - navigation "Navigation principale" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Plomberie Boileau — accueil" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Plomberie Boileau — logo horizontal" [ref=e5]:
+          - generic [ref=e9]: Plomberie Boileau
+          - generic [ref=e10]: EAU · CHALEUR · MONTRÉAL
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - link "Services" [ref=e13] [cursor=pointer]:
+            - /url: "#services"
+        - listitem [ref=e14]:
+          - link "Blogue" [ref=e15] [cursor=pointer]:
+            - /url: /blogue/
+        - listitem [ref=e16]:
+          - link "Pourquoi attendre?" [ref=e17] [cursor=pointer]:
+            - /url: "#why-wait"
+        - listitem [ref=e18]:
+          - link "Rejoindre la liste" [ref=e19] [cursor=pointer]:
+            - /url: "#waitlist"
+        - listitem [ref=e20]:
+          - link "Switch to English" [ref=e21] [cursor=pointer]:
+            - /url: /en/
+            - text: EN
+  - region "Votre plombier et spécialiste en chauffage à Montréal. Pour de vrai." [ref=e22]:
+    - img [ref=e24]
+    - generic [ref=e35]:
+      - paragraph [ref=e36]: «Votre eau. Votre chaleur. Votre voisin.»
+      - heading "Votre plombier et spécialiste en chauffage à Montréal. Pour de vrai." [level=1] [ref=e37]
+      - paragraph [ref=e38]: Titulaire d'un permis RBQ et membre certifié de la CMMTQ en plomberie et en chauffage. On dessert Rosemont, Villeray, le Plateau, NDG et les quartiers avoisinants.
+      - generic [ref=e40]:
+        - link "Rejoindre la liste d'attente" [ref=e41] [cursor=pointer]:
+          - /url: "#waitlist"
+        - link "Nos services" [ref=e42] [cursor=pointer]:
+          - /url: "#services"
+  - region "Ce qu'on fait" [ref=e43]:
+    - generic [ref=e44]:
+      - heading "Ce qu'on fait" [level=2] [ref=e45]
+      - paragraph [ref=e46]: Certifiés en plomberie et en chauffage — c'est rare à Montréal. Un seul appel pour tout couvrir.
+    - generic [ref=e47]:
+      - generic:
+        - generic:
+          - img
+      - generic [ref=e48]:
+        - article [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: "01"
+            - heading "Plomberie" [level=3] [ref=e52]
+            - paragraph [ref=e53]: Installation de clapets antiretour, installation et inspection de conformité des chauffe-eau, réparations urgentes, diagnostic de tuyaux. On connaît la fonte des vieux plex de Rosemont aussi bien que le cuivre neuf de NDG.
+            - link "En savoir plus sur les clapets antiretour →" [ref=e54] [cursor=pointer]:
+              - /url: /blogue/clapet-antiretour-refoulement-egout-montreal.html
+        - article [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: "02"
+            - heading "Chauffage" [level=3] [ref=e58]
+            - paragraph [ref=e59]: Entretien de chaudières et de fournaises, chauffage radiant, urgences de chauffage en janvier. On garde en stock les pièces pour les systèmes de chauffage les plus répandus à Montréal.
+            - link "Prévenir les tuyaux gelés →" [ref=e60] [cursor=pointer]:
+              - /url: /blogue/tuyaux-geles-hiver-montreal.html
+        - article [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e63]: "03"
+            - heading "Thermopompes + LogisVert" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Installation de thermopompes murales et centrales. Notre permis RBQ vous donne accès à la subvention LogisVert d'Hydro-Québec — jusqu'à 7 840 $. On s'occupe des démarches.
+            - link "En savoir plus sur la subvention →" [ref=e66] [cursor=pointer]:
+              - /url: /blogue/rabais-thermopompe-logisvert-quebec.html
+  - region "Pourquoi un délai?" [ref=e67]:
+    - generic [ref=e68]:
+      - blockquote [ref=e69]:
+        - paragraph [ref=e70]: «Parce que chaque travail est fait par un technicien certifié — pas un sous-traitant que vous n'avez jamais rencontré.»
+      - generic [ref=e71]:
+        - heading "Pourquoi un délai?" [level=2] [ref=e72]
+        - generic [ref=e73]:
+          - paragraph [ref=e74]: On travaille par recommandations et par réputation. On ne se précipite pas. On ne prend pas de raccourcis. Quand on se pointe, le travail est fait correctement du premier coup — pour ne pas revenir régler le même problème deux fois.
+          - paragraph [ref=e75]:
+            - text: Le délai est habituellement de quelques semaines. On rappelle les clients dans l'ordre.
+            - link "Laissez votre nom" [ref=e76] [cursor=pointer]:
+              - /url: "#waitlist"
+            - text: et on vous contacte.
+  - region "Inscrivez-vous à la liste d'attente" [ref=e77]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - heading "Inscrivez-vous à la liste d'attente" [level=2] [ref=e81]
+        - paragraph [ref=e82]: Nous sommes réservés pour quelques semaines. Laissez votre courriel et nous vous appellerons dans l'ordre — pas de courriels automatiques, juste un vrai coup de fil.
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: Prénom (facultatif)
+          - textbox "Prénom (facultatif)" [ref=e86]:
+            - /placeholder: Marie
+        - generic [ref=e87]:
+          - generic [ref=e88]: Adresse courriel *
+          - textbox "Adresse courriel" [ref=e89]:
+            - /placeholder: marie@exemple.com
+        - button "M'inscrire à la liste" [ref=e90] [cursor=pointer]
+        - paragraph [ref=e91]: Aucun pourriel. Désabonnement en tout temps. On vous appelle quand c'est votre tour.
+  - region "Du blogue" [ref=e92]:
+    - generic [ref=e93]:
+      - heading "Du blogue" [level=2] [ref=e94]
+      - paragraph [ref=e95]: Des réponses claires aux questions que nos voisins nous posent le plus souvent.
+      - generic [ref=e96]:
+        - article [ref=e97]:
+          - img [ref=e99]
+          - 'heading "Installation d''un clapet antiretour à Montréal : ce que les propriétaires de plex et de condos doivent savoir" [level=3] [ref=e106]':
+            - 'link "Installation d''un clapet antiretour à Montréal : ce que les propriétaires de plex et de condos doivent savoir" [ref=e107] [cursor=pointer]':
+              - /url: /blogue/clapet-antiretour-refoulement-egout-montreal.html
+          - paragraph [ref=e108]: La Ville vous en laisse la responsabilité. Voici ce qu'un clapet antiretour fait concrètement, quand vous en avez besoin et à quoi s'attendre lors de l'installation.
+          - link "Lire →" [ref=e109] [cursor=pointer]:
+            - /url: /blogue/clapet-antiretour-refoulement-egout-montreal.html
+        - generic [ref=e110]:
+          - article [ref=e111]:
+            - img [ref=e113]
+            - 'heading "Tuyaux gelés à Montréal : comment prévenir les bris de tuyaux cet hiver" [level=3] [ref=e131]':
+              - 'link "Tuyaux gelés à Montréal : comment prévenir les bris de tuyaux cet hiver" [ref=e132] [cursor=pointer]':
+                - /url: /blogue/tuyaux-geles-hiver-montreal.html
+            - paragraph [ref=e133]: Quels tuyaux gèlent en premier dans un hiver montréalais, quoi faire si ça arrive, et quand appeler plutôt que d'attendre.
+            - link "Lire →" [ref=e134] [cursor=pointer]:
+              - /url: /blogue/tuyaux-geles-hiver-montreal.html
+          - article [ref=e135]:
+            - img [ref=e137]
+            - 'heading "Subvention thermopompe LogisVert au Québec : jusqu''à 7 840 $ — avec un entrepreneur certifié RBQ" [level=3] [ref=e148]':
+              - 'link "Subvention thermopompe LogisVert au Québec : jusqu''à 7 840 $ — avec un entrepreneur certifié RBQ" [ref=e149] [cursor=pointer]':
+                - /url: /blogue/rabais-thermopompe-logisvert-quebec.html
+            - paragraph [ref=e150]: Le programme LogisVert d'Hydro-Québec rembourse une bonne partie de votre installation de thermopompe — mais seulement si votre entrepreneur est titulaire d'un permis RBQ. Le guide complet.
+            - link "Lire →" [ref=e151] [cursor=pointer]:
+              - /url: /blogue/rabais-thermopompe-logisvert-quebec.html
+  - contentinfo [ref=e152]:
+    - generic [ref=e153]:
+      - list "Signaux de confiance" [ref=e154]:
+        - listitem [ref=e155]: ✓ Permis RBQ № [en attente]
+        - listitem [ref=e156]: ✓ Membre CMMTQ
+        - listitem [ref=e157]: ✓ Entièrement assuré
+        - listitem [ref=e158]: ✓ Certifié plomberie + chauffage
+      - generic [ref=e159]:
+        - generic [ref=e160]: © 2026 Plomberie Boileau Inc. · Montréal, QC
+        - link "English version" [ref=e161] [cursor=pointer]:
+          - /url: /en/
+          - text: English →

@@ -916,10 +916,12 @@ footer {
 
 .hdm-flame {
   opacity: 0;
+  fill: #ff5630;
   transform-box: fill-box;
   transform-origin: center bottom;
   transform: scale(0.6);
-  animation: boileau-revealFlame 0.45s ease-out 1.05s both;
+  animation: boileau-revealFlame 0.45s ease-out 1.05s both,
+             boileau-flameGlow 2.6s ease-in-out 1.5s infinite;
 }
 
 @keyframes boileau-drawDrop {
@@ -928,6 +930,63 @@ footer {
 
 @keyframes boileau-revealFlame {
   to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   HERO LIVING LOGO — screen-only vivid treatment
+   Red + blue appear ONLY inside .hero-drop-flame (the hero mark);
+   the rest of the site keeps the locked brand palette. Water =
+   translucent blue blobs drifting & mixing, clipped to the drop.
+   Flame = warm red-orange with a soft pulsing glow, on top of the
+   water. Motion is transform/opacity/filter only (GPU-composited).
+   ============================================================ */
+.hdm-water-base { opacity: 0.92; }
+
+/* Soft-edged blobs; blur is static, only their transforms animate */
+.hdm-blobs { filter: blur(7px); }
+
+.hdm-blob {
+  fill-opacity: 0.6;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+.hdm-blob-1 { animation: hdm-drift-1 9s  ease-in-out  0s   infinite; }
+.hdm-blob-2 { animation: hdm-drift-2 11s ease-in-out -2s   infinite; }
+.hdm-blob-3 { animation: hdm-drift-3 8s  ease-in-out -4s   infinite; }
+.hdm-blob-4 { animation: hdm-drift-4 12s ease-in-out -1s   infinite; }
+
+@keyframes hdm-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(16px, -14px) scale(1.14); }
+}
+@keyframes hdm-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-18px, 12px) scale(1.1); }
+}
+@keyframes hdm-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(12px, 16px) scale(0.9); }
+}
+@keyframes hdm-drift-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-12px, -10px) scale(1.18); }
+}
+
+/* Warm pulsing glow — breathes after the intro reveal ends (1.5s).
+   clip-path keeps the glow inside the drop, so the flame lights the
+   water from within. */
+@keyframes boileau-flameGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 96, 40, 0.55))
+            drop-shadow(0 0 13px rgba(255, 48, 20, 0.35));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 11px rgba(255, 140, 50, 0.85))
+            drop-shadow(0 0 24px rgba(255, 70, 25, 0.55));
+    transform: scale(1.05);
+  }
 }
 
 /* ============================================================
@@ -1527,7 +1586,12 @@ footer {
     animation: none;
     opacity: 1;
     transform: scale(1);
+    /* static soft glow instead of the pulse */
+    filter: drop-shadow(0 0 8px rgba(255, 90, 35, 0.5));
   }
+
+  /* Living logo — freeze the water blobs in a calm static blue fill */
+  .hdm-blob { animation: none; }
 
   /* Pipe-rule — expand immediately, no transition */
   .pipe-rule .pipe-rule-bar,
