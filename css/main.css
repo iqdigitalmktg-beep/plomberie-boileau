@@ -1395,29 +1395,52 @@ footer {
   opacity: 1;
 }
 
-/* Mobile: graphic pinned to the top band, card sits below it */
+/* Mobile: the house becomes an OPAQUE pinned banner at the top of the
+   viewport and the cards scroll up UNDER it. (On desktop the house is on the
+   left and the cards on the right, so they never overlap and z-order is moot.
+   On mobile both centre into one column, so the house must sit on its own
+   opaque band ABOVE the cards — otherwise the cards paint over the artwork.)
+   The desktop overlay (margin-top:-100vh) is dropped so the cards flow
+   normally beneath the pinned house. */
 @media (max-width: 900px) {
   .scrolly-graphic {
-    align-items: flex-start;
+    position: sticky;
+    top: 0;                 /* nav is position:relative on mobile, so 0 = viewport top */
+    height: 34svh;
+    height: 34vh;
+    min-height: 34vh;
+    align-items: center;
     justify-content: center;
+    padding: 0.75rem 0 0.5rem;
     padding-left: 0;
-    padding-top: 6vh;
+    background: var(--ice); /* opaque: cards vanish cleanly behind its bottom edge */
+    z-index: 5;             /* above the scrolling cards */
+    box-shadow: 0 14px 22px -16px rgba(12, 74, 54, 0.45);
   }
   .blueprint {
-    width: min(72vw, 340px);
-    max-height: 44vh;
+    width: min(54vw, 248px);
+    max-height: 30vh;
   }
-  .blueprint svg { max-height: 44vh; }
+  .blueprint svg { max-height: 30vh; }
+
+  /* Cards flow normally under the pinned house — drop the desktop overlay */
+  .scrolly-panels {
+    margin-top: 0;
+    z-index: 1;
+  }
   .scrolly-panel {
-    align-items: flex-end;
+    min-height: 82vh;
+    align-items: flex-end;  /* card rides in the lower band, below the house */
     justify-content: center;
     padding: 0 1.25rem 6vh;
   }
   .scrolly-card { width: min(460px, 92vw); }
-  /* No extra dwell on mobile — keep the heat pump panel a single screen */
+
+  /* Stage 03 dwell — heat pump panel runs ~one card-height longer so the
+     pinned house holds on the heat pump stage before the section releases.
+     Pure layout (taller track); no scroll-listener JS. */
   .scrolly-panel[data-stage="heatpump"] {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 126vh;
     align-items: flex-end;
   }
   .scrolly-panel[data-stage="heatpump"] .scrolly-card {
