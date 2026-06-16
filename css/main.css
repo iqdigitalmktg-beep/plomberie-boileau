@@ -916,7 +916,7 @@ footer {
 
 .hdm-flame {
   opacity: 0;
-  fill: #ff5630;
+  fill: #D99A3D;
   transform-box: fill-box;
   transform-origin: center bottom;
   transform: scale(0.6);
@@ -978,13 +978,13 @@ footer {
    water from within. */
 @keyframes boileau-flameGlow {
   0%, 100% {
-    filter: drop-shadow(0 0 5px rgba(255, 96, 40, 0.55))
-            drop-shadow(0 0 13px rgba(255, 48, 20, 0.35));
+    filter: drop-shadow(0 0 5px rgba(230, 165, 70, 0.55))
+            drop-shadow(0 0 13px rgba(217, 154, 61, 0.35));
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 11px rgba(255, 140, 50, 0.85))
-            drop-shadow(0 0 24px rgba(255, 70, 25, 0.55));
+    filter: drop-shadow(0 0 11px rgba(240, 182, 92, 0.85))
+            drop-shadow(0 0 24px rgba(217, 154, 61, 0.55));
     transform: scale(1.05);
   }
 }
@@ -1610,7 +1610,7 @@ footer {
     opacity: 1;
     transform: scale(1);
     /* static soft glow instead of the pulse */
-    filter: drop-shadow(0 0 8px rgba(255, 90, 35, 0.5));
+    filter: drop-shadow(0 0 8px rgba(225, 160, 75, 0.5));
   }
 
   /* Living logo — freeze the water blobs in a calm static blue fill */
