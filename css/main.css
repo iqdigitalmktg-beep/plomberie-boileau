@@ -1423,29 +1423,59 @@ footer {
   }
   .blueprint svg { max-height: 30vh; }
 
-  /* Cards flow normally under the pinned house — drop the desktop overlay */
+  /* Cards become a STACKING SCROLL DECK pinned just below the house. Each
+     card sticks in the same slot for a short dwell, then the next card slides
+     up into it (sticky physics = "scroll up / enter from below") while the
+     active-stage flag cross-fades them. Card 1 is the initial active stage, so
+     it is co-present the moment the pin locks — no empty space first. The
+     desktop overlay is dropped so the deck flows under the pinned house. */
   .scrolly-panels {
     margin-top: 0;
     z-index: 1;
   }
   .scrolly-panel {
-    min-height: 82vh;
-    align-items: flex-end;  /* card rides in the lower band, below the house */
-    justify-content: center;
-    padding: 0 1.25rem 6vh;
+    /* Equal, fixed scroll-height slot per card — independent of text length so
+       FR and EN share identical scroll geometry. JS drives the stage flip from
+       the scroll percentage through these equal slots (see main.js). */
+    height: 85vh;
+    min-height: 0;
+    display: block;         /* card is placed by sticky, not flex */
+    padding: 0 1.25rem;
   }
-  .scrolly-card { width: min(460px, 92vw); }
+  .scrolly-card {
+    width: min(460px, 92vw);
+    margin: 0 auto;
+    position: sticky;
+    top: 36vh;              /* just under the 34vh house band */
+    opacity: 0;
+    transform: translateY(28px);
+    /* slow fade-OUT: the leaving card lingers so it covers the handoff even
+       on a fast fling (the entering card uses the faster transition below) */
+    transition: opacity 0.55s ease, transform 0.45s ease;
+  }
+  /* Only the active stage's card is shown; the others wait below, faded out.
+     A card leaving the slot rides up under the opaque house via sticky. */
+  .services-scrolly[data-active-stage="plumbing"] .scrolly-panel[data-stage="plumbing"] .scrolly-card,
+  .services-scrolly[data-active-stage="heating"]  .scrolly-panel[data-stage="heating"]  .scrolly-card,
+  .services-scrolly[data-active-stage="heatpump"] .scrolly-panel[data-stage="heatpump"] .scrolly-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.35s ease;  /* quick fade-IN */
+  }
 
-  /* Stage 03 dwell — heat pump panel runs ~one card-height longer so the
-     pinned house holds on the heat pump stage before the section releases.
-     Pure layout (taller track); no scroll-listener JS. */
+  /* Card 3 uses the same deck model — override the desktop heat-pump rule
+     (sticky-centre, higher specificity) and keep its slot equal to the others. */
   .scrolly-panel[data-stage="heatpump"] {
-    min-height: 126vh;
-    align-items: flex-end;
+    height: 85vh;
+    min-height: 0;
   }
   .scrolly-panel[data-stage="heatpump"] .scrolly-card {
-    position: static;
-    transform: none;
+    position: sticky;
+    top: 36vh;
+    transform: translateY(28px);
+  }
+  .services-scrolly[data-active-stage="heatpump"] .scrolly-panel[data-stage="heatpump"] .scrolly-card {
+    transform: translateY(0);
   }
 }
 
@@ -1644,6 +1674,8 @@ footer {
     margin: 0 auto;
     position: static;
     transform: none;
+    opacity: 1;          /* all three cards visible in the static stack */
+    transition: none;
   }
   .bp-layer { transition: none; }
 }

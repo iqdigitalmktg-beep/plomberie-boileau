@@ -164,16 +164,58 @@ document.addEventListener('DOMContentLoaded', () => {
   // It flips data-active-stage; CSS handles the opacity cross-fades.
   const scrolly = document.querySelector('.services-scrolly');
   if (scrolly && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const panels = scrolly.querySelectorAll('.scrolly-panel[data-stage]');
+    const panels = [...scrolly.querySelectorAll('.scrolly-panel[data-stage]')];
     if (panels.length) {
-      const stageObserver = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting && e.target.dataset.stage) {
-            scrolly.setAttribute('data-active-stage', e.target.dataset.stage);
-          }
-        });
-      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-      panels.forEach(p => stageObserver.observe(p));
+      const mobile = window.matchMedia('(max-width: 900px)').matches;
+      const setStage = i => {
+        const stage = panels[i].dataset.stage;
+        if (scrolly.getAttribute('data-active-stage') !== stage) {
+          scrolly.setAttribute('data-active-stage', stage);
+        }
+      };
+
+      if (mobile) {
+        // Mobile: the cards are a stacking deck pinned just under the house
+        // banner, each card occupying an EQUAL fixed-height slot (set in CSS).
+        // We flip the active stage from the scroll percentage through those
+        // equal slots — never from per-panel pixel offsets — so the differing
+        // text lengths of FR vs EN can't shift the trigger geometry and open
+        // blank gaps. The card pins at top:36vh, so the handoff between card i
+        // and card i+1 lands exactly when the slot boundary crosses that pin
+        // line: card i exits (75→100% of its slot) while card i+1 enters
+        // (0→25% of the next). Flipping the flag at the boundary lets the
+        // asymmetric CSS fades (slow out / quick in) cover the handoff.
+        const track = scrolly.querySelector('.scrolly-panels');
+        const PIN = 0.36; // matches .scrolly-card top:36vh
+        let ticking = false;
+        const update = () => {
+          ticking = false;
+          const rect = track.getBoundingClientRect();
+          const slot = rect.height / panels.length; // equal slot per card
+          if (slot <= 0) return;
+          const readLine = window.innerHeight * PIN;
+          const pos = (readLine - rect.top) / slot;  // position in slot units
+          const idx = Math.max(0, Math.min(panels.length - 1, Math.floor(pos)));
+          setStage(idx);
+        };
+        const onScroll = () => {
+          if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        update();
+      } else {
+        // Desktop centres the active panel in the viewport; a passive
+        // IntersectionObserver flips the stage as each panel crosses centre.
+        const stageObserver = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting && e.target.dataset.stage) {
+              scrolly.setAttribute('data-active-stage', e.target.dataset.stage);
+            }
+          });
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+        panels.forEach(p => stageObserver.observe(p));
+      }
     }
   }
 
