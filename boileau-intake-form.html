@@ -573,10 +573,8 @@ table.comp input,table.comp select{font-size:13.5px;padding:8px 9px;background:v
   <div class="prog"><b id="fbCount">0</b> of 9 sections started</div>
   <div class="progbar"><i id="fbBar"></i></div>
   <div class="spacer"></div>
-  <span class="copied" id="copiedMsg">Copied!</span>
-  <button class="fbtn ghost" id="btnPrint">Print / Save PDF</button>
-  <button class="fbtn ghost" id="btnMd">Copy as Markdown</button>
-  <button class="fbtn primary" id="btnJson">Export JSON</button>
+  <span class="copied" id="webhookMsg" style="display:none;color:#F2F6F3;"></span>
+  <button class="fbtn primary" id="btnWebhook">Submit answers →</button>
 </div>
 
 <div class="clearwrap">
@@ -1257,29 +1255,25 @@ updateProgress();
 (function(){
   const WEBHOOK_URL = "https://hook.us1.make.com/iiwidtmkxd391rnxa3up2v8ao48kcjyp";
 
-  const div = document.createElement("div");
-  div.style.cssText = "padding:12px 24px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;";
-  div.innerHTML =
-    '<button id="btnWebhook" style="padding:12px 28px;background:#157A55;color:#F2F6F3;border:none;border-radius:8px;' +
-    'font:600 15px/1 Bricolage Grotesque,sans-serif;cursor:pointer;white-space:nowrap;letter-spacing:.3px;">Submit answers →</button>' +
-    '<span id="webhookMsg" style="font-size:13px;color:#157A55;display:none;"></span>';
-
-  const footer = document.querySelector(".footer-bar") || document.querySelector("footer") || document.body.lastElementChild;
-  footer.parentNode.insertBefore(div, footer);
+  // Stub out removed buttons so no JS errors
+  ["btnPrint","btnMd","btnJson","copiedMsg"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.remove();
+  });
 
   document.getElementById("btnWebhook").addEventListener("click", async function(){
     const msg = document.getElementById("webhookMsg");
     const payload = buildJSON();
     msg.style.display = "inline";
-    msg.style.color = "#5A6B62";
+    msg.style.color = "#D99A3D";
     msg.textContent = "Sending…";
     try {
       await fetch(WEBHOOK_URL, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
-      msg.style.color = "#157A55";
-      msg.textContent = "✓ Submitted! Thank you — we’ll be in touch.";
+      msg.style.color = "#D99A3D";
+      msg.textContent = "✓ Submitted — thank you!";
     } catch(e) {
-      msg.style.color = "#c0392b";
-      msg.textContent = "✗ Something went wrong. Please try again or email us directly.";
+      msg.style.color = "#ff6b6b";
+      msg.textContent = "✗ Something went wrong, please try again.";
     }
   });
 })();
