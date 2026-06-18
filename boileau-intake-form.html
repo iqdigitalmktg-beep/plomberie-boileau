@@ -573,7 +573,6 @@ table.comp input,table.comp select{font-size:13.5px;padding:8px 9px;background:v
   <div class="prog"><b id="fbCount">0</b> of 9 sections started</div>
   <div class="progbar"><i id="fbBar"></i></div>
   <div class="spacer"></div>
-  <span class="copied" id="webhookMsg" style="display:none;color:#F2F6F3;"></span>
   <button class="fbtn primary" id="btnWebhook">Submit answers →</button>
 </div>
 
@@ -1255,26 +1254,56 @@ updateProgress();
 (function(){
   const WEBHOOK_URL = "https://hook.us1.make.com/iiwidtmkxd391rnxa3up2v8ao48kcjyp";
 
-  // Stub out removed buttons so no JS errors
-  ["btnPrint","btnMd","btnJson","copiedMsg"].forEach(function(id){
-    var el = document.getElementById(id);
-    if(el) el.remove();
-  });
+  // Success overlay
+  const overlay = document.createElement("div");
+  overlay.id = "successOverlay";
+  overlay.style.cssText = [
+    "display:none",
+    "position:fixed",
+    "inset:0",
+    "background:rgba(12,74,54,0.97)",
+    "z-index:9999",
+    "align-items:center",
+    "justify-content:center",
+    "flex-direction:column",
+    "text-align:center",
+    "padding:40px"
+  ].join(";");
+
+  overlay.innerHTML = `
+    <div style="width:72px;height:72px;border-radius:50%;background:#157A55;display:flex;align-items:center;justify-content:center;margin-bottom:28px;">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path d="M8 18l7 7 13-13" stroke="#F2F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div style="font-family:Arial,sans-serif;font-size:28px;font-weight:700;color:#F2F6F3;margin-bottom:14px;">Answers submitted!</div>
+    <div style="font-family:Georgia,serif;font-style:italic;font-size:18px;color:#D99A3D;margin-bottom:20px;">Votre eau. Votre chaleur. Votre voisin.</div>
+    <div style="font-family:Arial,sans-serif;font-size:15px;color:#9DC4B3;max-width:420px;line-height:1.6;">
+      Thank you — your answers have been sent. Matt will be in touch soon to go through everything together.
+    </div>
+  `;
+  document.body.appendChild(overlay);
 
   document.getElementById("btnWebhook").addEventListener("click", async function(){
-    const msg = document.getElementById("webhookMsg");
+    const btn = document.getElementById("btnWebhook");
+    btn.textContent = "Sending…";
+    btn.disabled = true;
+    btn.style.opacity = "0.7";
+
     const payload = buildJSON();
-    msg.style.display = "inline";
-    msg.style.color = "#D99A3D";
-    msg.textContent = "Sending…";
     try {
-      await fetch(WEBHOOK_URL, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
-      msg.style.color = "#D99A3D";
-      msg.textContent = "✓ Submitted — thank you!";
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      });
     } catch(e) {
-      msg.style.color = "#ff6b6b";
-      msg.textContent = "✗ Something went wrong, please try again.";
+      // no-cors won't throw on success, only on network failure
     }
+
+    // Show success overlay
+    overlay.style.display = "flex";
   });
 })();
 </script>
