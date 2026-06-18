@@ -180,13 +180,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // We flip the active stage from the scroll percentage through those
         // equal slots — never from per-panel pixel offsets — so the differing
         // text lengths of FR vs EN can't shift the trigger geometry and open
-        // blank gaps. The card pins at top:36vh, so the handoff between card i
+        // blank gaps. The card pins at top:42vh, so the handoff between card i
         // and card i+1 lands exactly when the slot boundary crosses that pin
         // line: card i exits (75→100% of its slot) while card i+1 enters
         // (0→25% of the next). Flipping the flag at the boundary lets the
         // asymmetric CSS fades (slow out / quick in) cover the handoff.
         const track = scrolly.querySelector('.scrolly-panels');
-        const PIN = 0.36; // matches .scrolly-card top:36vh
+        const PIN = 0.42; // matches .scrolly-card top:42vh
         let ticking = false;
         const update = () => {
           ticking = false;

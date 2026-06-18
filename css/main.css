@@ -1463,7 +1463,7 @@ footer {
     width: min(460px, 92vw);
     margin: 0 auto;
     position: sticky;
-    top: 36vh;              /* just under the 34vh house band */
+    top: 42vh;              /* clears the 34vh house band + its drop-shadow (~3vh) with breathing room — keep in sync with PIN in main.js */
     opacity: 0;
     transform: translateY(28px);
     /* slow fade-OUT: the leaving card lingers so it covers the handoff even
@@ -1488,7 +1488,7 @@ footer {
   }
   .scrolly-panel[data-stage="heatpump"] .scrolly-card {
     position: sticky;
-    top: 36vh;
+    top: 42vh;              /* match the shared card pin line (keep in sync with PIN in main.js) */
     transform: translateY(28px);
   }
   .services-scrolly[data-active-stage="heatpump"] .scrolly-panel[data-stage="heatpump"] .scrolly-card {
