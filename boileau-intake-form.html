@@ -510,6 +510,62 @@ table.comp input,table.comp select{font-size:13.5px;padding:8px 9px;background:v
   a[href]:after{content:""}
 }
 </style>
+
+<style>
+/* ── Top progress bar (mobile) ── */
+@media (max-width: 860px) {
+  .topbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    padding-bottom: 0 !important;
+  }
+  .top-progress {
+    display: block !important;
+  }
+  /* hide the bottom footbar progress elements on mobile, keep submit */
+  .footbar .prog,
+  .footbar .progbar,
+  .footbar .spacer {
+    display: none !important;
+  }
+  .footbar {
+    justify-content: flex-end;
+    padding: 10px 18px;
+  }
+}
+
+/* top progress bar element — hidden on desktop */
+.top-progress {
+  display: none;
+  background: var(--deep);
+  padding: 8px 18px 10px;
+}
+.top-progress-track {
+  height: 5px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.top-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--brass);
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+.top-progress-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 11px;
+  color: #9DC4B3;
+  letter-spacing: 0.5px;
+}
+.top-progress-label b {
+  color: var(--ice);
+  font-weight: 600;
+}
+</style>
 </head>
 
 <body>
@@ -1269,7 +1325,6 @@ updateProgress();
     "text-align:center",
     "padding:40px"
   ].join(";");
-
   overlay.innerHTML = `
     <div style="width:72px;height:72px;border-radius:50%;background:#157A55;display:flex;align-items:center;justify-content:center;margin-bottom:28px;">
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
@@ -1284,12 +1339,32 @@ updateProgress();
   `;
   document.body.appendChild(overlay);
 
+  // Sync top progress bar with the existing updateProgress function
+  const origUpdate = window.updateProgress;
+  function syncTopBar() {
+    const countEl = document.getElementById("fbCount");
+    const barEl = document.getElementById("fbBar");
+    const topFill = document.getElementById("topProgressFill");
+    const topCount = document.getElementById("topProgressCount");
+    if (!countEl || !topFill) return;
+    const n = parseInt(countEl.textContent) || 0;
+    const pct = (n / 9) * 100;
+    topFill.style.width = pct + "%";
+    if (topCount) topCount.textContent = n;
+  }
+
+  // Poll for progress updates (hooks into existing updateProgress calls)
+  const observer = new MutationObserver(syncTopBar);
+  const fbCount = document.getElementById("fbCount");
+  if (fbCount) observer.observe(fbCount, { childList: true, subtree: true, characterData: true });
+  syncTopBar();
+
+  // Submit button
   document.getElementById("btnWebhook").addEventListener("click", async function(){
     const btn = document.getElementById("btnWebhook");
     btn.textContent = "Sending…";
     btn.disabled = true;
     btn.style.opacity = "0.7";
-
     const payload = buildJSON();
     try {
       await fetch(WEBHOOK_URL, {
@@ -1298,11 +1373,7 @@ updateProgress();
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(payload)
       });
-    } catch(e) {
-      // no-cors won't throw on success, only on network failure
-    }
-
-    // Show success overlay
+    } catch(e) {}
     overlay.style.display = "flex";
   });
 })();
