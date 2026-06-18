@@ -1210,6 +1210,23 @@ footer {
    range: the panels are pulled up over the sticky graphic. */
 .scrolly-wrap { position: relative; }
 
+/* Desktop only (the section's mobile banner layout owns <=900px — see the
+   max-width:900px block below — so this min-width:901px gate keeps that
+   untouched): contain the blueprint scrollytelling in a centred max-width
+   card with the rest of the site rather than bleeding to the viewport edge.
+   overflow:clip (NOT hidden) so the box clips the sticky house to its own
+   bounds WITHOUT becoming a scroll container — that lets the children's
+   position:sticky keep pinning against the page scroll, now within the box. */
+@media (min-width: 901px) {
+  .scrolly-wrap {
+    max-width: var(--max-w);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    overflow: clip;
+  }
+}
+
 .scrolly-graphic {
   position: sticky;
   top: 0;
