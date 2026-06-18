@@ -1225,6 +1225,23 @@ footer {
     border-radius: 16px;
     overflow: clip;
   }
+
+  /* Sync the section EXIT so the pinned house and Card 3 release together.
+     The house (.scrolly-graphic: sticky top:0, height 100vh) has its bottom at
+     100vh; Card 3 (sticky top:50vh, ~342px tall) has its bottom at 50vh+342px.
+     A sticky element is held by its containing block's CONTENT box, and the
+     house's container (.scrolly-wrap) and Card 3's container (the heat-pump
+     .scrolly-panel) bottom out at the same line — so the taller house runs out
+     of runway first and unpins ~108px before the card (the staggered exit).
+     Padding the panels track (NOT the heat-pump panel) grows the house's
+     containing block by the gap between the two pinned bottoms —
+     100vh − (50vh + 342px) = 50vh − 342px — so the house holds until Card 3
+     releases and they scroll up as one. Card 3's panel height, its dwell, and
+     every in-section pin/transition are untouched. (342px = the heat-pump card
+     height, identical in FR and EN — keep in sync if that copy changes.) */
+  .scrolly-panels {
+    padding-bottom: calc(50vh - 342px);
+  }
 }
 
 .scrolly-graphic {
