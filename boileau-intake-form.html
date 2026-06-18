@@ -1255,43 +1255,32 @@ updateProgress();
 
 <script>
 (function(){
-  const WEBHOOK_KEY = "boileau_webhook_url";
-  const stored = localStorage.getItem(WEBHOOK_KEY) || "";
+  const WEBHOOK_URL = "https://hook.us1.make.com/iiwidtmkxd391rnxa3up2v8ao48kcjyp";
 
   const div = document.createElement("div");
   div.style.cssText = "padding:12px 24px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;";
   div.innerHTML =
-    '<input id="webhookUrl" type="url" placeholder="Paste your Make webhook URL here…" ' +
-    'style="flex:1;min-width:260px;padding:9px 12px;border:1.5px solid #DCEFE5;border-radius:8px;' +
-    'font:14px/1 Work Sans,sans-serif;color:#1C2B24;background:#fff;outline:none;" value="' + stored.replace(/"/g,'&quot;') + '">' +
-    '<button id="btnWebhook" style="padding:9px 18px;background:#157A55;color:#F2F6F3;border:none;border-radius:8px;' +
-    'font:600 14px/1 Bricolage Grotesque,sans-serif;cursor:pointer;white-space:nowrap;">Send to Make ↗</button>' +
+    '<button id="btnWebhook" style="padding:12px 28px;background:#157A55;color:#F2F6F3;border:none;border-radius:8px;' +
+    'font:600 15px/1 Bricolage Grotesque,sans-serif;cursor:pointer;white-space:nowrap;letter-spacing:.3px;">Submit answers →</button>' +
     '<span id="webhookMsg" style="font-size:13px;color:#157A55;display:none;"></span>';
 
   const footer = document.querySelector(".footer-bar") || document.querySelector("footer") || document.body.lastElementChild;
   footer.parentNode.insertBefore(div, footer);
 
-  document.getElementById("webhookUrl").addEventListener("input", function(e){
-    localStorage.setItem(WEBHOOK_KEY, e.target.value.trim());
-  });
-
   document.getElementById("btnWebhook").addEventListener("click", async function(){
-    const url = document.getElementById("webhookUrl").value.trim();
     const msg = document.getElementById("webhookMsg");
-    if(!url){ alert("Paste your Make webhook URL in the field first."); return; }
     const payload = buildJSON();
     msg.style.display = "inline";
     msg.style.color = "#5A6B62";
     msg.textContent = "Sending…";
     try {
-      await fetch(url, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
+      await fetch(WEBHOOK_URL, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
       msg.style.color = "#157A55";
-      msg.textContent = "✓ Sent — check Make for confirmation";
+      msg.textContent = "✓ Submitted! Thank you — we’ll be in touch.";
     } catch(e) {
       msg.style.color = "#c0392b";
-      msg.textContent = "✗ Error: " + e.message;
+      msg.textContent = "✗ Something went wrong. Please try again or email us directly.";
     }
-    setTimeout(function(){ msg.style.display = "none"; }, 4000);
   });
 })();
 </script>
