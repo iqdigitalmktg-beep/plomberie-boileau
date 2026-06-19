@@ -1258,7 +1258,12 @@ footer {
 }
 
 .blueprint {
-  width: min(46vw, 540px);
+  /* Desktop width (mobile overrides this in the max-width:900px block). Trimmed
+     from 540px so the left-anchored house clears the right-anchored card with a
+     comfortable centre gutter (~156px at 1440px) instead of a cramped ~96px.
+     Only the SVG shrinks inside the 100vh .scrolly-graphic, so the house's
+     pinned-bottom and the exit-sync fix are unaffected. */
+  width: min(42vw, 480px);
   max-height: 86vh;
 }
 
